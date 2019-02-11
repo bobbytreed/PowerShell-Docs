@@ -12,9 +12,6 @@ Just like a Function or a Script Block, you can use any PowerShell language with
 
 In this simple example, the **Service** resource block retrieves the current state of a service at compile time to generate a ".mof" file that maintains its current state.
 
-> [!NOTE]
-> Using dynamic Resource blocks will preempt the effectiveness of Intellisense. The PowerShell parser cannot determine if the values specified are acceptable until the Configuration is compiled.
-
 ```powershell
 Configuration ServiceState
 {
