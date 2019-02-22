@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821735
 external help file:  Microsoft.WSMan.Management.dll-Help.xml
 title:  Remove-WSManInstance
 ---
-
 # Remove-WSManInstance
 
 ## SYNOPSIS
@@ -16,6 +15,7 @@ Deletes a management resource instance.
 ## SYNTAX
 
 ### ComputerName (Default)
+
 ```
 Remove-WSManInstance [-ApplicationName <String>] [-ComputerName <String>] [-OptionSet <Hashtable>]
  [-Port <Int32>] [-ResourceURI] <Uri> [-SelectorSet] <Hashtable> [-SessionOption <SessionOption>] [-UseSSL]
@@ -24,6 +24,7 @@ Remove-WSManInstance [-ApplicationName <String>] [-ComputerName <String>] [-Opti
 ```
 
 ### URI
+
 ```
 Remove-WSManInstance [-ConnectionURI <Uri>] [-OptionSet <Hashtable>] [-ResourceURI] <Uri>
  [-SelectorSet] <Hashtable> [-SessionOption <SessionOption>] [-Credential <PSCredential>]
@@ -31,6 +32,7 @@ Remove-WSManInstance [-ConnectionURI <Uri>] [-OptionSet <Hashtable>] [-ResourceU
 ```
 
 ## DESCRIPTION
+
 The **Remove-WSManInstance** cmdlet deletes an instance of a management resource that is specified in the *ResourceURI* and *SelectorSet* parameters.
 
 This cmdlet uses the WinRM connection/transport layer to delete the management resource instance.
@@ -38,6 +40,7 @@ This cmdlet uses the WinRM connection/transport layer to delete the management r
 ## EXAMPLES
 
 ### Example 1: Delete a listener
+
 ```
 PS C:\> Remove-WSManInstance -ResourceUri winrm/config/Listener -SelectorSet Address=test.fabrikam.com;Transport=http
 ```
@@ -47,6 +50,7 @@ This command deletes the WS-Management HTTP listener on a computer.
 ## PARAMETERS
 
 ### -ApplicationName
+
 Specifies the application name in the connection.
 The default value of the *ApplicationName* parameter is WSMAN.
 The complete identifier for the remote endpoint is in the following format:
@@ -73,6 +77,7 @@ Accept wildcard characters: False
 ```
 
 ### -Authentication
+
 Specifies the authentication mechanism to be used at the server.
 The acceptable values for this parameter are:
 
@@ -110,6 +115,7 @@ Accept wildcard characters: False
 ```
 
 ### -CertificateThumbprint
+
 Specifies the digital public key certificate (X509) of a user account that has permission to perform this action.
 Enter the certificate thumbprint of the certificate.
 
@@ -131,6 +137,7 @@ Accept wildcard characters: False
 ```
 
 ### -ComputerName
+
 Specifies the computer against which to run the management operation.
 The value can be a fully qualified domain name, a NetBIOS name, or an IP address.
 Use the local computer name, use localhost, or use a dot (.) to specify the local computer.
@@ -151,6 +158,7 @@ Accept wildcard characters: False
 ```
 
 ### -ConnectionURI
+
 Specifies the connection endpoint.
 The format of this string is as follows:
 
@@ -175,6 +183,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
+
 Specifies a user account that has permission to perform this action.
 The default is the current user.
 Type a user name, such as User01, Domain01\User01, or User@Domain.com.
@@ -194,6 +203,7 @@ Accept wildcard characters: False
 ```
 
 ### -OptionSet
+
 Specifies a set of switches to a service to modify or refine the nature of the request.
 These resemble switches used in command-line shells because they are service specific.
 Any number of options can be specified.
@@ -215,6 +225,7 @@ Accept wildcard characters: False
 ```
 
 ### -Port
+
 Specifies the port to use when the client connects to the WinRM service.
 When the transport is HTTP, the default port is 80.
 When the transport is HTTPS, the default port is 443.
@@ -236,6 +247,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceURI
+
 Specifies the URI of the resource class or instance.
 The URI is used to identify a specific type of resource, such as disks or processes, on a computer.
 
@@ -259,6 +271,7 @@ Accept wildcard characters: False
 ```
 
 ### -SelectorSet
+
 Specifies a set of value pairs that are used to select particular management resource instances.
 The *SelectorSet* parameter is used when more than one instance of the resource exists.
 The value of *SelectorSet* must be a hash table.
@@ -280,6 +293,7 @@ Accept wildcard characters: False
 ```
 
 ### -SessionOption
+
 Specifies extended options for the WS-Management session.
 Enter a **SessionOption** object that you create by using the New-WSManSessionOption cmdlet.
 For more information about the options that are available, type `Get-Help New-WSManSessionOption`.
@@ -297,6 +311,7 @@ Accept wildcard characters: False
 ```
 
 ### -UseSSL
+
 Specifies that the Secure Sockets Layer (SSL) protocol is used to establish a connection to the remote computer.
 By default, SSL is not used.
 
@@ -317,19 +332,23 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 This cmdlet does not accept any input.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not generate any output.
 
 ## NOTES
+
 * The Remove-WmiObject cmdlet, a Windows Management Instrumentation (WMI) cmdlet, is similar. **Remove-WmiObject** uses the DCOM connection/transport layer to create or update WMI instances.
 
 *

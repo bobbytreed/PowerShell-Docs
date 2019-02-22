@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkID=517137
 external help file:  Microsoft.PowerShell.PackageManagement.dll-Help.xml
 title:  Get-PackageSource
 ---
-
 # Get-PackageSource
 
 ## SYNOPSIS
@@ -21,6 +20,7 @@ Get-PackageSource [[-Name] <String>] [-Location <String>] [-Force] [-ForceBootst
 ```
 
 ## DESCRIPTION
+
 The **Get-PackageSource** gets a list of package sources that are registered with Package Management on the local computer.
 If you specify a package provider, **Get-PackageSource** gets only those sources that are associated with the specified provider.
 Otherwise, the command returns all package sources that are registered with Package Management.
@@ -28,6 +28,7 @@ Otherwise, the command returns all package sources that are registered with Pack
 ## EXAMPLES
 
 ### Example 1: Get all package sources
+
 ```
 PS C:\> Get-PackageSource
 ```
@@ -35,6 +36,7 @@ PS C:\> Get-PackageSource
 This command gets all package sources that are registered with Package Management on the local computer.
 
 ### Example 2: Get all package sources for a specific provider
+
 ```
 PS C:\> Get-PackageSource -ProviderName "PSModule"
 ```
@@ -42,6 +44,7 @@ PS C:\> Get-PackageSource -ProviderName "PSModule"
 This command gets all package sources that are registered for the PSModule provider.
 
 ### Example 3: Get all package sources for a specific provider
+
 ```
 PS C:\> Get-PackageProvider "PSModule" | Get-PackageSource
 ```
@@ -51,6 +54,7 @@ This command gets all package sources for the PSModule provider by piping the re
 ## PARAMETERS
 
 ### -Force
+
 Forces the command to run without asking for user confirmation.
 
 ```yaml
@@ -66,6 +70,7 @@ Accept wildcard characters: False
 ```
 
 ### -ForceBootstrap
+
 Indicates that this cmdlet forces Package Management to automatically install the package provider.
 
 ```yaml
@@ -81,6 +86,7 @@ Accept wildcard characters: False
 ```
 
 ### -Location
+
 Specifies the location of the Package Management source or repository.
 
 ```yaml
@@ -96,6 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the name of the Package Management source.
 
 ```yaml
@@ -111,6 +118,7 @@ Accept wildcard characters: False
 ```
 
 ### -PackageManagementProvider
+
 Specifies the Package Management provider.
 
 ```yaml
@@ -126,6 +134,7 @@ Accept wildcard characters: False
 ```
 
 ### -ProviderName
+
 Specifies the provider name.
 The acceptable values for this parameter are:
 
@@ -149,6 +158,7 @@ Accept wildcard characters: False
 ```
 
 ### -PublishLocation
+
 Specifies the publish location for the package source.
 
 ```yaml
@@ -164,6 +174,7 @@ Accept wildcard characters: False
 ```
 
 ### -Scope
+
 {{Fill Scope Description}}
 
 ```yaml
@@ -180,6 +191,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -187,6 +199,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ### PackageSource[]
+
 Specifies one or more package sources.
 
 ## NOTES

@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821736
 external help file:  Microsoft.WSMan.Management.dll-Help.xml
 title:  Set-WSManInstance
 ---
-
 # Set-WSManInstance
 
 ## SYNOPSIS
@@ -16,6 +15,7 @@ Modifies the management information that is related to a resource.
 ## SYNTAX
 
 ### ComputerName (Default)
+
 ```
 Set-WSManInstance [-ApplicationName <String>] [-ComputerName <String>] [-Dialect <Uri>] [-FilePath <String>]
  [-Fragment <String>] [-OptionSet <Hashtable>] [-Port <Int32>] [-ResourceURI] <Uri>
@@ -25,6 +25,7 @@ Set-WSManInstance [-ApplicationName <String>] [-ComputerName <String>] [-Dialect
 ```
 
 ### URI
+
 ```
 Set-WSManInstance [-ConnectionURI <Uri>] [-Dialect <Uri>] [-FilePath <String>] [-Fragment <String>]
  [-OptionSet <Hashtable>] [-ResourceURI] <Uri> [[-SelectorSet] <Hashtable>] [-SessionOption <SessionOption>]
@@ -33,6 +34,7 @@ Set-WSManInstance [-ConnectionURI <Uri>] [-Dialect <Uri>] [-FilePath <String>] [
 ```
 
 ## DESCRIPTION
+
 The **Set-WSManInstance** cmdlet modifies the management information that is related to a resource.
 
 This cmdlet uses the WinRM connection/transport layer to modify the information.
@@ -40,6 +42,7 @@ This cmdlet uses the WinRM connection/transport layer to modify the information.
 ## EXAMPLES
 
 ### Example 1: Disable a listener on the local computer
+
 ```
 PS C:\> set-wsmaninstance -ResourceUri winrm/config/listener -SelectorSet @{address="*";transport="https"} -ValueSet @{Enabled="false"}
 cfg                   : http://schemas.microsoft.com/wbem/wsman/1/config/listener
@@ -66,6 +69,7 @@ This fails: `-ValueSet @{enabled="False"}`
 This succeeds: `-ValueSet @{Enabled="False"}`
 
 ### Example 2: Set the maximum envelope size on the local computer
+
 ```
 PS C:\> Set-WSManInstance -ResourceUri winrm/config -ValueSet @{MaxEnvelopeSizekb = "200"}
 cfg                 : http://schemas.microsoft.com/wbem/wsman/1/config
@@ -84,6 +88,7 @@ This command sets the MaxEnvelopeSizekb value to 200 on the local computer.
 Important: *ValueSet* is case-sensitive when matching the properties specified.
 
 ### Example 3: Disable a listener on a remote computer
+
 ```
 PS C:\> Set-WSManInstance -ResourceUri winrm/config/listener -ComputerName "SERVER02" -SelectorSet @{address="*";transport="https"} -ValueSet @{Enabled="false"}
 cfg                   : http://schemas.microsoft.com/wbem/wsman/1/config/listener
@@ -106,6 +111,7 @@ Important: *ValueSet* is case-sensitive when matching the properties specified.
 ## PARAMETERS
 
 ### -ApplicationName
+
 Specifies the application name in the connection.
 The default value of the *ApplicationName* parameter is WSMAN.
 The complete identifier for the remote endpoint is in the following format:
@@ -132,6 +138,7 @@ Accept wildcard characters: False
 ```
 
 ### -Authentication
+
 Specifies the authentication mechanism to be used at the server.
 The acceptable values for this parameter are:
 
@@ -169,6 +176,7 @@ Accept wildcard characters: False
 ```
 
 ### -CertificateThumbprint
+
 Specifies the digital public key certificate (X509) of a user account that has permission to perform this action.
 Enter the certificate thumbprint of the certificate.
 
@@ -190,6 +198,7 @@ Accept wildcard characters: False
 ```
 
 ### -ComputerName
+
 Specifies the computer against which to run the management operation.
 The value can be a fully qualified domain name, a NetBIOS name, or an IP address.
 Use the local computer name, use localhost, or use a dot (.) to specify the local computer.
@@ -210,6 +219,7 @@ Accept wildcard characters: False
 ```
 
 ### -ConnectionURI
+
 Specifies the connection endpoint.
 The format of this string is as follows:
 
@@ -234,6 +244,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
+
 Specifies a user account that has permission to perform this action.
 The default is the current user.
 Type a user name, such as User01, Domain01\User01, or User@Domain.com.
@@ -253,6 +264,7 @@ Accept wildcard characters: False
 ```
 
 ### -Dialect
+
 Specifies the dialect to use in the filter predicate.
 This can be any dialect that is supported by the remote service.
 The following aliases can be used for the dialect URI:
@@ -277,6 +289,7 @@ Accept wildcard characters: False
 ```
 
 ### -FilePath
+
 Specifies the path of a file that is used to create a management resource.
 You specify the management resource by using the *ResourceURI* parameter and the *SelectorSet* parameter.
 
@@ -293,6 +306,7 @@ Accept wildcard characters: False
 ```
 
 ### -Fragment
+
 Specifies a section inside the instance that is to be updated or retrieved for the specified operation.
 For example, to get the status of a spooler service, specify the following:
 
@@ -311,6 +325,7 @@ Accept wildcard characters: False
 ```
 
 ### -OptionSet
+
 Specifies a set of switches to a service to modify or refine the nature of the request.
 These resemble switches used in command-line shells because they are service specific.
 Any number of options can be specified.
@@ -332,6 +347,7 @@ Accept wildcard characters: False
 ```
 
 ### -Port
+
 Specifies the port to use when the client connects to the WinRM service.
 When the transport is HTTP, the default port is 80.
 When the transport is HTTPS, the default port is 443.
@@ -353,6 +369,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceURI
+
 Specifies the URI of the resource class or instance.
 The URI is used to identify a specific type of resource, such as disks or processes, on a computer.
 
@@ -376,6 +393,7 @@ Accept wildcard characters: False
 ```
 
 ### -SelectorSet
+
 Specifies a set of value pairs that are used to select particular management resource instances.
 *SelectorSet* is used when more than one instance of the resource exists.
 The value of *SelectorSet* must be a hash table.
@@ -397,6 +415,7 @@ Accept wildcard characters: False
 ```
 
 ### -SessionOption
+
 Specifies extended options for the WS-Management session.
 Enter a **SessionOption** object that you create by using the New-WSManSessionOption cmdlet.
 For more information about the options that are available, type `Get-Help New-WSManSessionOption`.
@@ -414,6 +433,7 @@ Accept wildcard characters: False
 ```
 
 ### -UseSSL
+
 Specifies that the Secure Sockets Layer (SSL) protocol is used to establish a connection to the remote computer.
 By default, SSL is not used.
 
@@ -434,6 +454,7 @@ Accept wildcard characters: False
 ```
 
 ### -ValueSet
+
 Specifies a hash table that helps modify a management resource.
 You specify the management resource by using *ResourceURI* and *SelectorSet*.
 The value of the *ValueSet* parameter must be a hash table.
@@ -451,16 +472,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 This cmdlet does not accept any input.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not generate any output.
 
 ## NOTES

@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821881
 external help file:  Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 title:  Write-Warning
 ---
-
 # Write-Warning
 
 ## SYNOPSIS
@@ -20,12 +19,14 @@ Write-Warning [-Message] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Write-Warning** cmdlet writes a warning message to the Windows PowerShell host.
 The response to the warning depends on the value of the user's $WarningPreference variable and the use of the *WarningAction* common parameter.
 
 ## EXAMPLES
 
 ### Example 1: Write a warning message
+
 ```
 PS C:\> Write-Warning "This is only a test warning."
 ```
@@ -33,6 +34,7 @@ PS C:\> Write-Warning "This is only a test warning."
 This command displays the message "WARNING: This is only a test warning."
 
 ### Example 2: Pass a string to Write-Warning
+
 ```
 PS C:\> $w = "This is only a test warning."
 PS C:\> $w | Write-Warning
@@ -42,6 +44,7 @@ This command shows that you can use a pipeline operator (|) to send a string to 
 You can save the string in a variable, as shown in this command, or pipe the string directly to **Write-Warning**.
 
 ### Example 3: Set the $WarningPreference variable and write a warning
+
 ```
 PS C:\> $warningpreference
 Continue PS C:\> Write-Warning "This is only a test warning."
@@ -68,6 +71,7 @@ A value of Stop displays the warning and then stops execution of the command.
 For more information about the $WarningPreference variable, see about_Preference_Variables.
 
 ### Example 4: Set the WarningAction parameter and write a warning
+
 ```
 PS C:\> Write-Warning "This is only a test warning." -WarningAction Inquire
 WARNING: This is only a test warning.
@@ -88,6 +92,7 @@ For more information about the *WarningAction* common parameter, see about_Commo
 ## PARAMETERS
 
 ### -Message
+
 Specifies the warning message.
 
 ```yaml
@@ -103,20 +108,24 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.String
+
 You can pipe a string that contains the warning to **Write-Warning**.
 
 ## OUTPUTS
 
 ### None
+
 **Write-Warning** writes only to the warning stream.
 It does not generate any other output.
 
 ## NOTES
+
 * The default value for the $WarningPreference variable is Continue, which displays the warning and then continues executing the command. To determine valid values for a preference variable such as $WarningPreference, set it to a string of random characters, such as "abc". The resulting error message will list the valid values.
 
 *

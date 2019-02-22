@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821666
 external help file:  PSGet-help.xml
 title:  Publish-Module
 ---
-
 # Publish-Module
 
 ## SYNOPSIS
@@ -16,6 +15,7 @@ Publishes a specified module from the local computer to an online gallery.
 ## SYNTAX
 
 ### ModuleNameParameterSet (Default)
+
 ```powershell
 Publish-Module -Name <String> [-RequiredVersion <Version>] -NuGetApiKey <String> [-Repository <String>]
  [-FormatVersion <Version>] [-ReleaseNotes <String[]>] [-Tags <String[]>] [-LicenseUri <Uri>] [-IconUri <Uri>]
@@ -23,6 +23,7 @@ Publish-Module -Name <String> [-RequiredVersion <Version>] -NuGetApiKey <String>
 ```
 
 ### ModulePathParameterSet
+
 ```powershell
 Publish-Module -Path <String> -NuGetApiKey <String> [-Repository <String>] [-FormatVersion <Version>]
  [-ReleaseNotes <String[]>] [-Tags <String[]>] [-LicenseUri <Uri>] [-IconUri <Uri>] [-ProjectUri <Uri>]
@@ -30,6 +31,7 @@ Publish-Module -Path <String> -NuGetApiKey <String> [-Repository <String>] [-For
 ```
 
 ## DESCRIPTION
+
 The `Publish-Module` cmdlet publishes a module to an online NuGet-based gallery by using an API key, stored as part of a user's profile in the gallery.
 You can specify the module to publish either by the module's name, or by the path to the folder containing the module.
 
@@ -43,6 +45,7 @@ Although most metadata is taken from the module manifest, some metadata must be 
 ## EXAMPLES
 
 ### Example 1: Publish a module
+
 ```powershell
 Publish-Module -Name "MyDscModule" -NuGetApiKey "11e4b435-6cb4-4bf7-8611-5162ed75eb73"
 ```
@@ -51,6 +54,7 @@ In this example, MyDscModule is published to the online gallery by using the API
 If MyDscModule is not a valid manifest module that specifies a name, version, description, and author, an error occurs.
 
 ### Example 2: Publish a module with gallery metadata
+
 ```powershell
 Publish-Module -Name "MyDscModule" -NuGetApiKey "11e4b435-6cb4-4bf7-8611-5162ed75eb73" -LicenseUri "http://contoso.com/license" -Tag "Active Directory","DSC" -ReleaseNote "Updated the ActiveDirectory DSC Resources to support adding users."
 ```
@@ -63,6 +67,7 @@ If MyDscModule is not a valid manifest module that specifies a name, version, de
 ## PARAMETERS
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -94,6 +99,7 @@ Accept wildcard characters: False
 ```
 
 ### -IconUri
+
 Specifies the URL of an icon for the module.
 The specified icon is displayed on the gallery webpage for the module.
 
@@ -110,6 +116,7 @@ Accept wildcard characters: False
 ```
 
 ### -LicenseUri
+
 Specifies the URL of licensing terms for the module you want to publish.
 
 ```yaml
@@ -125,6 +132,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the name of the module that you want to publish.
 `Publish-Module` searches for the specified module name in $Env:PSModulePath.
 
@@ -141,6 +149,7 @@ Accept wildcard characters: False
 ```
 
 ### -NuGetApiKey
+
 Specifies the API key that you want to use to publish a module to the online gallery.
 The API key is part of your profile in the online gallery, and can be found on your user account page in the gallery.
 The API key is NuGet-specific functionality.
@@ -158,6 +167,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
+
 Specifies the path to the module that you want to publish.
 This parameter accepts the path to the folder that contains the module.
 
@@ -174,6 +184,7 @@ Accept wildcard characters: False
 ```
 
 ### -ProjectUri
+
 Specifies the URL of a webpage about this project.
 
 ```yaml
@@ -189,6 +200,7 @@ Accept wildcard characters: False
 ```
 
 ### -ReleaseNotes
+
 Specifies a string containing release notes or comments that you want to be available to users of this version of the module.
 
 ```yaml
@@ -204,6 +216,7 @@ Accept wildcard characters: False
 ```
 
 ### -Repository
+
 Specifies the friendly name of a repository that has been registered by running `Register-PSRepository`.
 The repository must have a PublishLocation, which is a valid NuGet URI.
 The PublishLocation can be set by running `Set-PSRepository`.
@@ -222,6 +235,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequiredVersion
+
 Specifies the exact version of a single module to publish.
 
 ```yaml
@@ -237,6 +251,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tags
+
 Adds one or more tags to the module that you are publishing.
 Example tags include DesiredStateConfiguration, DSC, DSCResourceKit, or PSModule.
 Separate multiple tags with commas.
@@ -254,6 +269,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -270,6 +286,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -279,6 +296,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
 * This cmdlet runs on Windows PowerShell 3.0 or later releases of Windows PowerShell, on Windows 7 or Windows 2008 R2 and later releases of Windows.
 
   `Publish-Module` shows no output if a module is published successfully.

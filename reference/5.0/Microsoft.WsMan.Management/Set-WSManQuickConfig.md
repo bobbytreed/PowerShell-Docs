@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821737
 external help file:  Microsoft.WSMan.Management.dll-Help.xml
 title:  Set-WSManQuickConfig
 ---
-
 # Set-WSManQuickConfig
 
 ## SYNOPSIS
@@ -20,6 +19,7 @@ Set-WSManQuickConfig [-UseSSL] [-Force] [-SkipNetworkProfileCheck] [<CommonParam
 ```
 
 ## DESCRIPTION
+
 The **Set-WSManQuickConfig** cmdlet configures the computer to receive Windows PowerShell remote commands that are sent by using the Web Services for Management (WS-Management) technology.
 
 This cmdlet performs the following actions:
@@ -36,6 +36,7 @@ To run this cmdlet, start Windows PowerShell by using the Run as administrator o
 ## EXAMPLES
 
 ### Example 1: Enable remote management of the local computer over HTTP
+
 ```
 PS C:\> Set-WSManQuickConfig
 ```
@@ -44,6 +45,7 @@ This command sets the required configuration to enable remote management of the 
 By default, this command creates a WS-Management listener on HTTP.
 
 ### Example 2: Enable remote management of the local computer over HTTPS
+
 ```
 PS C:\> Set-WSManQuickConfig -UseSSL
 ```
@@ -54,6 +56,7 @@ The *UseSSL* parameter makes the command create a WS-Management listener on HTTP
 ## PARAMETERS
 
 ### -Force
+
 Forces the command to run without asking for user confirmation.
 
 ```yaml
@@ -69,6 +72,7 @@ Accept wildcard characters: False
 ```
 
 ### -SkipNetworkProfileCheck
+
 Configures client versions of Windows for remoting when the computer is on a public network.
 This parameter enables a firewall rule for public networks that allows remote access only from computers in the same local subnet.
 
@@ -92,6 +96,7 @@ Accept wildcard characters: False
 ```
 
 ### -UseSSL
+
 Specifies that the Secure Sockets Layer (SSL) protocol is used to establish a connection to the remote computer.
 By default, SSL is not used.
 
@@ -112,16 +117,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](../Microsoft.PowerShell.Core/About/about_CommonParameters.md).
 
 ## INPUTS
 
 ### None
+
 This cmdlet does not accept any input.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not generate any output.
 
 ## NOTES

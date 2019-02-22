@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821660
 external help file:  PSGet-help.xml
 title:  Get-InstalledModule
 ---
-
 # Get-InstalledModule
 
 ## SYNOPSIS
@@ -21,11 +20,13 @@ Get-InstalledModule [[-Name] <String[]>] [-MinimumVersion <Version>] [-RequiredV
 ```
 
 ## DESCRIPTION
+
 The **Get-InstalledModule** cmdlet gets Windows PowerShell modules that are installed on a computer.
 
 ## EXAMPLES
 
 ### Example 1: Get all installed modules
+
 ```
 PS C:\> Get-InstalledModule
 Version    Name                                Type       Repository           Description
@@ -38,6 +39,7 @@ Version    Name                                Type       Repository           D
 This command gets all installed modules.
 
 ### Example 2: Get specific versions of a module
+
 ```
 PS C:\> Get-InstalledModule -Name "AzureRM.Automation" -MinimumVersion 1.0 -MaximumVersion 2.0
 Version    Name                                Type       Repository           Description
@@ -50,6 +52,7 @@ This command gets versions of the AzureRM.Automation module from version 1.0 thr
 ## PARAMETERS
 
 ### -MaximumVersion
+
 Specifies the maximum, or newest, version of a module to get.
 The *MaximumVersion* and *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
@@ -66,6 +69,7 @@ Accept wildcard characters: False
 ```
 
 ### -MinimumVersion
+
 Specifies the minimum version of a single module to get.
 The *MinimumVersion* and *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
@@ -82,6 +86,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies an array of names of modules to get.
 
 ```yaml
@@ -97,6 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequiredVersion
+
 Specifies the exact version of a module to get.
 
 ```yaml
@@ -112,6 +118,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

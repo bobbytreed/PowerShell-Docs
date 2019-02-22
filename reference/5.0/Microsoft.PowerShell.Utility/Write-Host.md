@@ -10,7 +10,6 @@ title:  Write-Host
 # Write-Host
 
 ## SYNOPSIS
-
 Writes customized output to a host.
 
 ## SYNTAX

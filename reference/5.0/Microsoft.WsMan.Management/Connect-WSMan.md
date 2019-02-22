@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821724
 external help file:  Microsoft.WSMan.Management.dll-Help.xml
 title:  Connect-WSMan
 ---
-
 # Connect-WSMan
 
 ## SYNOPSIS
@@ -16,6 +15,7 @@ Connects to the WinRM service on a remote computer.
 ## SYNTAX
 
 ### ComputerName (Default)
+
 ```
 Connect-WSMan [-ApplicationName <String>] [[-ComputerName] <String>] [-OptionSet <Hashtable>] [-Port <Int32>]
  [-SessionOption <SessionOption>] [-UseSSL] [-Credential <PSCredential>]
@@ -23,6 +23,7 @@ Connect-WSMan [-ApplicationName <String>] [[-ComputerName] <String>] [-OptionSet
 ```
 
 ### URI
+
 ```
 Connect-WSMan [-ConnectionURI <Uri>] [-OptionSet <Hashtable>] [-Port <Int32>] [-SessionOption <SessionOption>]
  [-Credential <PSCredential>] [-Authentication <AuthenticationMechanism>] [-CertificateThumbprint <String>]
@@ -30,6 +31,7 @@ Connect-WSMan [-ConnectionURI <Uri>] [-OptionSet <Hashtable>] [-Port <Int32>] [-
 ```
 
 ## DESCRIPTION
+
 The **Connect-WSMan** cmdlet connects to the WinRM service on a remote computer, and it establishes a persistent connection to the remote computer.
 You can use this cmdlet in the context of the WSMan provider to connect to the WinRM service on a remote computer.
 However, you can also use this cmdlet to connect to the WinRM service on a remote computer before you change to the WSMan provider.
@@ -42,6 +44,7 @@ For information about how to disconnect from the WinRM service on a remote compu
 ## EXAMPLES
 
 ### Example 1: Connect to a remote computer
+
 ```
 PS C:\> Connect-WSMan -ComputerName "server01"
 PS C:\> cd wsman:
@@ -62,6 +65,7 @@ However, you can use the cmdlet to establish connections to remote computers bef
 Those connections appear in the **ComputerName** list.
 
 ### Example 2: Connect to a remote computer by using Administrator credentials
+
 ```
 PS C:\> $cred = Get-Credential Administrator
 PS C:\> Connect-WSMan -ComputerName "server01" -Credential $cred
@@ -85,6 +89,7 @@ The second command uses the *Credential* parameter to pass the credentials store
 **Connect-WSMan** then connects to the remote system server01 by using the Administrator credentials.
 
 ### Example 3: Connect to a remote computer over a specified port
+
 ```
 PS C:\> Connect-WSMan -ComputerName "server01" -Port 80
 PS C:\> cd wsman:
@@ -100,6 +105,7 @@ server01                                      Container
 This command creates a connection to the remote server01 computer over port 80.
 
 ### Example 4: Connect to a remote computer by using connection options
+
 ```
 PS C:\> $a = New-WSManSessionOption -OperationTimeout 30000
 PS C:\> Connect-WSMan -ComputerName "server01" -SessionOption $a
@@ -124,6 +130,7 @@ Then, **Connect-WSMan** connects to the remote server01 computer by using the sp
 ## PARAMETERS
 
 ### -ApplicationName
+
 Specifies the application name in the connection.
 The default value of the *ApplicationName* parameter is WSMAN.
 The complete identifier for the remote endpoint is in the following format:
@@ -150,6 +157,7 @@ Accept wildcard characters: False
 ```
 
 ### -Authentication
+
 Specifies the authentication mechanism to be used at the server.
 The acceptable values for this parameter are:
 
@@ -187,6 +195,7 @@ Accept wildcard characters: False
 ```
 
 ### -CertificateThumbprint
+
 Specifies the digital public key certificate (X509) of a user account that has permission to perform this action.
 Enter the certificate thumbprint of the certificate.
 
@@ -208,6 +217,7 @@ Accept wildcard characters: False
 ```
 
 ### -ComputerName
+
 Specifies the computer against which to run the management operation.
 The value can be a fully qualified domain name, a NetBIOS name, or an IP address.
 Use the local computer name, use localhost, or use a dot (.) to specify the local computer.
@@ -228,6 +238,7 @@ Accept wildcard characters: False
 ```
 
 ### -ConnectionURI
+
 Specifies the connection endpoint.
 The format of this string is as follows:
 
@@ -252,6 +263,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
+
 Specifies a user account that has permission to perform this action.
 The default is the current user.
 Type a user name, such as User01, Domain01\User01, or User@Domain.com.
@@ -271,6 +283,7 @@ Accept wildcard characters: False
 ```
 
 ### -OptionSet
+
 Specifies a set of switches to a service to modify or refine the nature of the request.
 These resemble switches used in command-line shells because they are service specific.
 Any number of options can be specified.
@@ -292,6 +305,7 @@ Accept wildcard characters: False
 ```
 
 ### -Port
+
 Specifies the port to use when the client connects to the WinRM service.
 When the transport is HTTP, the default port is 80.
 When the transport is HTTPS, the default port is 443.
@@ -313,6 +327,7 @@ Accept wildcard characters: False
 ```
 
 ### -SessionOption
+
 Specifies extended options for the WS-Management session.
 Enter a **SessionOption** object that you create by using the New-WSManSessionOption cmdlet.
 For more information about the options that are available, type `Get-Help New-WSManSessionOption`.
@@ -330,6 +345,7 @@ Accept wildcard characters: False
 ```
 
 ### -UseSSL
+
 Specifies that the Secure Sockets Layer (SSL) protocol is used to establish a connection to the remote computer.
 By default, SSL is not used.
 
@@ -350,19 +366,23 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 This cmdlet does not accept any input.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not generate any output.
 
 ## NOTES
+
 * You can run management commands or query management data on a remote computer without creating a WS-Management session. You can do this by using the *ComputerName* parameters of Invoke-WSManAction and Get-WSManInstance. When you use the *ComputerName* parameter, Windows PowerShell creates a temporary connection that is used for the single command. After the command runs, the connection is closed.
 
 *

@@ -9,7 +9,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=834980
 # WSMan Provider
 
 ## Provider name
-
 WSMan
 
 ## Drives

@@ -10,7 +10,6 @@ title:  Uninstall-Package
 # Uninstall-Package
 
 ## SYNOPSIS
-
 Uninstalls one or more software packages.
 
 ## SYNTAX

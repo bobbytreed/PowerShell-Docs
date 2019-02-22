@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821873
 external help file:  Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 title:  Wait-Event
 ---
-
 # Wait-Event
 
 ## SYNOPSIS
@@ -20,6 +19,7 @@ Wait-Event [[-SourceIdentifier] <String>] [-Timeout <Int32>] [<CommonParameters>
 ```
 
 ## DESCRIPTION
+
 The **Wait-Event** cmdlet suspends execution of a script or function until a particular event is raised.
 Execution resumes when the event is detected.
 To cancel the wait, press CTRL+C.
@@ -30,6 +30,7 @@ It also allows you to determine the response to an event in two different ways: 
 ## EXAMPLES
 
 ### Example 1: Wait for the next event
+
 ```
 PS C:\> Wait-Event
 ```
@@ -37,6 +38,7 @@ PS C:\> Wait-Event
 This command waits for the next event that is raised.
 
 ### Example 2: Wait for an event with a specified source identifier
+
 ```
 PS C:\> Wait-Event -SourceIdentifier "ProcessStarted"
 ```
@@ -44,6 +46,7 @@ PS C:\> Wait-Event -SourceIdentifier "ProcessStarted"
 This command waits for the next event that is raised and that has a source identifier of ProcessStarted.
 
 ### Example 3: Wait for a timer elapsed event
+
 ```
 PS C:\> $Timer.Interval = 2000
 PS C:\> $Timer.Autoreset = $False
@@ -62,6 +65,7 @@ ForwardEvent     : False
 This command uses the **Wait-Event** cmdlet to wait for a timer event on a timer that is set for 2000 milliseconds.
 
 ### Example 4: Wait for an event after a specified timeout
+
 ```
 PS C:\> Wait-Event -SourceIdentifier "ProcessStarted" -Timeout 90
 ```
@@ -72,6 +76,7 @@ If the specified time expires, the wait ends.
 ## PARAMETERS
 
 ### -SourceIdentifier
+
 Specifies the source identifier that this cmdlet waits for events.
 By default, **Wait-Event** waits for any event.
 
@@ -88,6 +93,7 @@ Accept wildcard characters: False
 ```
 
 ### -Timeout
+
 Specifies the maximum time, in seconds, that **Wait-Event** waits for the event to occur.
 The default, -1, waits indefinitely.
 The timing starts when you submit the **Wait-Event** command.
@@ -108,6 +114,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -119,6 +126,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Management.Automation.PSEventArgs
 
 ## NOTES
+
 * Events, event subscriptions, and the event queue exist only in the current session. If you close the current session, the event queue is discarded and the event subscription is canceled.
 
 *

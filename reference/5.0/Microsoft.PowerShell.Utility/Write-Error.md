@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821875
 external help file:  Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 title:  Write-Error
 ---
-
 # Write-Error
 
 ## SYNOPSIS
@@ -16,6 +15,7 @@ Writes an object to the error stream.
 ## SYNTAX
 
 ### NoException (Default)
+
 ```
 Write-Error [-Message] <String> [-Category <ErrorCategory>] [-ErrorId <String>] [-TargetObject <Object>]
  [-RecommendedAction <String>] [-CategoryActivity <String>] [-CategoryReason <String>]
@@ -23,6 +23,7 @@ Write-Error [-Message] <String> [-Category <ErrorCategory>] [-ErrorId <String>] 
 ```
 
 ### WithException
+
 ```
 Write-Error -Exception <Exception> [[-Message] <String>] [-Category <ErrorCategory>] [-ErrorId <String>]
  [-TargetObject <Object>] [-RecommendedAction <String>] [-CategoryActivity <String>] [-CategoryReason <String>]
@@ -30,12 +31,14 @@ Write-Error -Exception <Exception> [[-Message] <String>] [-Category <ErrorCatego
 ```
 
 ### ErrorRecord
+
 ```
 Write-Error -ErrorRecord <ErrorRecord> [-RecommendedAction <String>] [-CategoryActivity <String>]
  [-CategoryReason <String>] [-CategoryTargetName <String>] [-CategoryTargetType <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Write-Error** cmdlet declares a non-terminating error.
 By default, errors are sent in the error stream to the host program to be displayed, along with output.
 
@@ -51,6 +54,7 @@ For more information, see about_Throw (http://go.microsoft.com/fwlink/?LinkID=14
 ## EXAMPLES
 
 ### Example 1: Write an error for RegistryKey object
+
 ```
 PS C:\> Get-ChildItem | ForEach-Object { if ($_.GetType().ToString() -eq "Microsoft.Win32.RegistryKey") {Write-Error "Invalid object" -ErrorID B1 -Targetobject $_ } else {$_ } }
 ```
@@ -58,6 +62,7 @@ PS C:\> Get-ChildItem | ForEach-Object { if ($_.GetType().ToString() -eq "Micros
 This command declares a non-terminating error when the Get-ChildItem cmdlet returns a Microsoft.Win32.RegistryKey object, such as the objects in the HKLM: or HKCU: drives of the Windows PowerShell Registry provider.
 
 ### Example 2: Write an error message to the console
+
 ```
 PS C:\> Write-Error "Access denied."
 ```
@@ -66,6 +71,7 @@ This command declares a non-terminating error and writes an "Access denied" erro
 The command uses the *Message* parameter to specify the message, but omits the optional *Message* parameter name.
 
 ### Example 3: Write an error to the console and specify the category
+
 ```
 PS C:\> Write-Error -Message "Error: Too many input values." -Category InvalidArgument
 ```
@@ -73,6 +79,7 @@ PS C:\> Write-Error -Message "Error: Too many input values." -Category InvalidAr
 This command declares a non-terminating error and specifies an error category.
 
 ### Example 4: Write an error using an Exception object
+
 ```
 PS C:\> $E = [System.Exception]@{Source="Get-ParameterNames.ps1";HelpLink="http://go.microsoft.com/fwlink/?LinkID=113425"}
 PS C:\> Write-Error -Exception $E -Message "Files not found. The $Files location does not contain any XML files."
@@ -90,6 +97,7 @@ The value of the *Exception* parameter is the **Exception** object in the $E var
 ## PARAMETERS
 
 ### -Category
+
 Specifies the category of the error.
 The default value is NotSpecified.
 The acceptable values for this parameter are:
@@ -143,6 +151,7 @@ Accept wildcard characters: False
 ```
 
 ### -CategoryActivity
+
 Specifies the action that caused the error.
 
 ```yaml
@@ -158,6 +167,7 @@ Accept wildcard characters: False
 ```
 
 ### -CategoryReason
+
 Specifies how or why the activity caused the error.
 
 ```yaml
@@ -173,6 +183,7 @@ Accept wildcard characters: False
 ```
 
 ### -CategoryTargetName
+
 Specifies the name of the object that was being processed when the error occurred.
 
 ```yaml
@@ -188,6 +199,7 @@ Accept wildcard characters: False
 ```
 
 ### -CategoryTargetType
+
 Specifies the type of the object that was being processed when the error occurred.
 
 ```yaml
@@ -203,6 +215,7 @@ Accept wildcard characters: False
 ```
 
 ### -ErrorId
+
 Specifies an ID string to identify the error.
 The string should be unique to the error.
 
@@ -219,6 +232,7 @@ Accept wildcard characters: False
 ```
 
 ### -ErrorRecord
+
 Specifies an error record object that represents the error.
 Use the properties of the object to describe the error.
 
@@ -237,6 +251,7 @@ Accept wildcard characters: False
 ```
 
 ### -Exception
+
 Specifies an exception object that represents the error.
 Use the properties of the object to describe the error.
 
@@ -255,6 +270,7 @@ Accept wildcard characters: False
 ```
 
 ### -Message
+
 Specifies the message text of the error.
 If the text includes spaces or special characters, enclose it in quotation marks.
 You can also pipe a message string to **Write-Error**.
@@ -284,6 +300,7 @@ Accept wildcard characters: False
 ```
 
 ### -RecommendedAction
+
 Specifies the action that the user should take to resolve or prevent the error.
 
 ```yaml
@@ -299,6 +316,7 @@ Accept wildcard characters: False
 ```
 
 ### -TargetObject
+
 Specifies the object that was being processed when the error occurred.
 Enter the object, a variable that contains the object, or a command that gets the object.
 
@@ -315,16 +333,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.String
+
 You can pipe a string that contains an error message to **Write-Error**.
 
 ## OUTPUTS
 
 ### Error object
+
 **Write-Error** writes only to the error stream.
 It does not return any objects.
 

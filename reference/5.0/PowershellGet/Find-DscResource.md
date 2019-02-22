@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821657
 external help file:  PSGet-help.xml
 title:  Find-DscResource
 ---
-
 # Find-DscResource
 
 ## SYNOPSIS
@@ -22,12 +21,14 @@ Find-DscResource [[-Name] <String[]>] [-moduleName <String>] [-MinimumVersion <V
 ```
 
 ## DESCRIPTION
+
 The **Find-DscResource** cmdlet finds Desired State Configuration (DSC) resources contained in modules that match the specified criteria from registered repositories.
 For each module that this cmdlet finds, **Find-DscResource** returns a **PSGetDscResourceInfo** object that you can pipe to Install-Module to install the modules containing the resources that this cmdlet returns.
 
 ## EXAMPLES
 
 ### Example 1: Find all DSC resources
+
 ```
 PS C:\> Find-DscResource
 Name                                Version    ModuleName                          Repository
@@ -43,6 +44,7 @@ xIisModule                          1.7.0.0    xWebAdministration               
 This command returns all DSC resources from all registered galleries.
 
 ### Example 2: Find a DSC resource by name
+
 ```
 PS C:\> Find-DscResource -Name "xWebsite"
 Name                                Version    ModuleName                          Repository
@@ -53,6 +55,7 @@ xWebsite                            1.7.0.0    xWebAdministration               
 This command finds the DSC resource named xWebsite.
 
 ### Example 3: Find a DSC resource and install it
+
 ```
 PS C:\> Find-DscResource -Name "MyResource" | Install-Module
 ```
@@ -63,6 +66,7 @@ The Install-Module cmdlet installs the module for the resource.
 If you pipe multiple resources to the **Install-Module** cmdlet from the same module, **Install-Module** attempts to install the module only once.
 
 ### Example 4: Find all DSC resources in a module
+
 ```
 PS C:\> Find-DscResource -ModuleName "xWebAdministration"
 Name                                Version    ModuleName                          Repository
@@ -83,6 +87,7 @@ xWebVirtualDirectory                1.7.0.0    xWebAdministration               
 This command finds all the DSC resources contained in a specified module by specifying the *ModuleName* parameter.
 
 ### Example 5: Find a DSC resource by tag and required version
+
 ```
 PS C:\> Find-DscResource -Tag "Credentials" -RequiredVersion "1.5"
 ```
@@ -90,6 +95,7 @@ PS C:\> Find-DscResource -Tag "Credentials" -RequiredVersion "1.5"
 This command finds a resource by its tag and required version.
 
 ### Example 6: Find a resource by using a filter
+
 ```
 PS C:\> Find-DscResource -Filter "Domain"
 Name                                Version    ModuleName                          Repository
@@ -105,6 +111,7 @@ In a NuGet repository, this command searches through the name, description, and 
 ## PARAMETERS
 
 ### -AllVersions
+
 Specifies that you want to include all available versions of a module in results.
 You cannot use the *AllVersions* parameter with the *MinimumVersion*, *MaximumVersion*, or *RequiredVersion* parameters.
 
@@ -121,6 +128,7 @@ Accept wildcard characters: False
 ```
 
 ### -Filter
+
 Specifies the PackageManagement provider-specific search syntax to use to find modules.
 For NuGet modules, this is the equivalent of searching by using the Search bar on the [PowerShell Gallery](https://www.powershellgallery.com/) website.
 
@@ -137,6 +145,7 @@ Accept wildcard characters: False
 ```
 
 ### -MinimumVersion
+
 Specifies the minimum version of a single resource to find.
 Do not specify this parameter if you are attempting to find multiple resources.
 The *MinimumVersion* and the *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
@@ -154,6 +163,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies an array of names of one or more DSC resources to discover.
 This parameter supports wildcard characters.
 
@@ -175,6 +185,7 @@ Accept wildcard characters: False
 ```
 
 ### -Repository
+
 Specifies the friendly name of a repository that has been registered by running Register-PSRepository.
 
 ```yaml
@@ -190,6 +201,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequiredVersion
+
 Specifies the exact version number of the module to include in the results.
 The *MinimumVersion* and the *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
@@ -206,6 +218,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tag
+
 Specifies an array of tags to find.
 Example tags include DesiredStateConfiguration,  DSC,  DSCResourceKit, or PSModule.
 
@@ -222,6 +235,7 @@ Accept wildcard characters: False
 ```
 
 ### -moduleName
+
 Specifies the name of the module that contains the DSC resource to find.
 
 ```yaml
@@ -237,6 +251,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

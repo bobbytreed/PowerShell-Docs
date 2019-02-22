@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821668
 external help file:  PSGet-help.xml
 title:  Register-PSRepository
 ---
-
 # Register-PSRepository
 
 ## SYNOPSIS
@@ -21,6 +20,7 @@ Register-PSRepository -Name <String> -SourceLocation <Uri> [-PublishLocation <Ur
 ```
 
 ## DESCRIPTION
+
 The **Register-PSRepository** cmdlet registers the default repository for PowerShell modules.
 After a repository is registered, you can reference it from the Find-Module, Install-Module, and Publish-Module cmdlets.
 The registered repository becomes the default repository in **Find-Module** and **Install-Module**.
@@ -36,6 +36,7 @@ If a OneGet provider is not specified during registration, PowerShellGet attempt
 ## EXAMPLES
 
 ### Example 1: Register a repository
+
 ```
 PS C:\> Register-PSRepository -Name "myNuGetSource" -SourceLocation "https://www.myget.org/F/powershellgetdemo/api/v2" -PublishLocation "https://www.myget.org/F/powershellgetdemo/api/v2/Packages" -InstallationPolicy Trusted
 PS C:\> Get-PSRepository
@@ -54,6 +55,7 @@ The second command gets registered repositories and displays the results.
 ## PARAMETERS
 
 ### -InstallationPolicy
+
 Specifies the installation policy.
 Valid values are: Trusted, UnTrusted.
 The default value is UnTrusted.
@@ -77,6 +79,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the name of the repository to register.
 You can use this name to specify the repository in cmdlets such as Find-Module and Install-Module.
 
@@ -93,6 +96,7 @@ Accept wildcard characters: False
 ```
 
 ### -PackageManagementProvider
+
 Specifies a OneGet package provider.
 If you don't specify a value for this parameter, PowerShellGet polls available package providers and associates this repository with the first package provider that indicates it can handle the repository.
 
@@ -109,6 +113,7 @@ Accept wildcard characters: False
 ```
 
 ### -PublishLocation
+
 Specifies the URI of the publish location.
 For example, for NuGet-based repositories, the publish location is similar to http://someNuGetUrl.com/api/v2/Packages.
 
@@ -125,6 +130,7 @@ Accept wildcard characters: False
 ```
 
 ### -SourceLocation
+
 Specifies the URI for discovering and installing modules from this repository.
 A URI can be a NuGet server feed (most common situation), HTTP, HTTPS, FTP or file location.
 
@@ -143,6 +149,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

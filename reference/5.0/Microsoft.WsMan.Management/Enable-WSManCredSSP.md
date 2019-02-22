@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821727
 external help file:  Microsoft.WSMan.Management.dll-Help.xml
 title:  Enable-WSManCredSSP
 ---
-
 # Enable-WSManCredSSP
 
 ## SYNOPSIS
@@ -20,6 +19,7 @@ Enable-WSManCredSSP [[-DelegateComputer] <String[]>] [-Force] [-Role] <String> [
 ```
 
 ## DESCRIPTION
+
 The **Enable-WSManCredSSP** cmdlet enables Credential Security Support Provider (CredSSP) authentication on a client or on a server computer.
 When CredSSP authentication is used, the user credentials are passed to a remote computer to be authenticated.
 This type of authentication is designed for commands that create a remote session from another remote session.
@@ -49,6 +49,7 @@ If the remote computer is compromised, when credentials are passed to it, the cr
 ## EXAMPLES
 
 ### Example 1: Delegate client credentials
+
 ```
 PS C:\> Enable-WSManCredSSP -Role "Client" -DelegateComputer "server02.accounting.fabrikam.com"
 cfg         : http://schemas.microsoft.com/wbem/wsman/1/config/client/auth
@@ -64,6 +65,7 @@ CredSSP     : true
 This command allows the client credentials to be delegated to the server02 computer.
 
 ### Example 2: Delegate client credentials to all computers in a domain
+
 ```
 PS C:\> Enable-WSManCredSSP -Role "Client" -DelegateComputer "*.accounting.fabrikam.com"
 cfg         : http://schemas.microsoft.com/wbem/wsman/1/config/client/auth
@@ -79,6 +81,7 @@ CredSSP     : true
 This command allows the client credentials to be delegated to all the computers in the accounting.fabrikam.com domain.
 
 ### Example 3: Delegate client credentials to multiple computers
+
 ```
 PS C:\> Enable-WSManCredSSP -Role "Client" -DelegateComputer "server02.accounting.fabrikam.com", "server03.accounting.fabrikam.com", "server04.accounting.fabrikam.com"
 cfg         : http://schemas.microsoft.com/wbem/wsman/1/config/client/auth
@@ -94,6 +97,7 @@ CredSSP     : true
 This command allows the client credentials to be delegated to multiple computers.
 
 ### Example 4: Allow a computer to act as a delegate
+
 ```
 PS C:\> Enable-WSManCredSSP -Role "Server"
 ```
@@ -104,6 +108,7 @@ In order for the remote computer to act as a delegate for the client, the CredSS
 This example sets the CredSSP item in the Service node of WSMan to true.
 
 ### Example 5: Allow a computer to act as a delegate by using Set-Item
+
 ```
 PS C:\> Connect-WSMan -ComputerName "server02"
 PS C:\> Set-Item -Path "wsman:\server02\service\auth\credSSP" -Value $True
@@ -121,6 +126,7 @@ This value allows the remote computer to act as a delegate.
 ## PARAMETERS
 
 ### -DelegateComputer
+
 Specifies servers to which client credentials are delegated.
 Specify fully qualified domain names.
 
@@ -141,6 +147,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Forces the command to run without asking for user confirmation.
 
 ```yaml
@@ -156,6 +163,7 @@ Accept wildcard characters: False
 ```
 
 ### -Role
+
 Specifies whether to enable CredSSP as a client or as a server.
 The acceptable values for this parameter are: Client and Server.
 
@@ -188,19 +196,23 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 This cmdlet does not accept any input.
 
 ## OUTPUTS
 
 ### System.Xml.XmlElement
+
 If CredSSP authentication is successfully enabled, this cmdlet generates an **XMLElement** object.
 
 ## NOTES
+
 * To disable CredSSP authentication, use the Disable-WSManCredSSP cmdlet.
 
 ## RELATED LINKS

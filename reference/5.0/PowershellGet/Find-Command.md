@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=822318
 external help file:  PSModule-help.xml
 title:  Find-Command
 ---
-
 # Find-Command
 
 ## SYNOPSIS
@@ -22,6 +21,7 @@ Find-Command [[-Name] <String[]>] [-ModuleName <String>] [-MinimumVersion <Versi
 ```
 
 ## DESCRIPTION
+
 The **Find-Command** cmdlet finds PowerShell commands such as cmdlets, aliases, functions, and workflows.
 **Find-Command** searches modules in registered repositories.
 
@@ -31,6 +31,7 @@ You can pass a **PSGetCommandInfo** object to the Install-Module cmdlet to insta
 ## EXAMPLES
 
 ### Example 1: Find all commands in a specified repository
+
 ```
 PS C:\> Find-Command -Repository "INT" | Select-Object -First 10
 Name                                Version    ModuleName                          Repository
@@ -50,6 +51,7 @@ Add-AzureRmEnvironment              1.0.4      AzureRM.Profile                  
 This command finds commands in modules in the INT repository, and uses the pipeline operator to pass the results to Select-Object to select the first 10 commands.
 
 ### Example 2: Find a command by name
+
 ```
 PS C:\> Find-Command -Repository "INT" -Name "Get-ContosoClient"
 Name                                Version    ModuleName                          Repository
@@ -61,6 +63,7 @@ This command finds the command named Get-ContosoClient in the INT repository.
 The command is contained in the ContosoClient module.
 
 ### Example 3: Find commands by name and install them
+
 ```
 PS C:\> Find-Command -Repository "INT" -Name "Get-ContosoClient,Get-ContosoServer" | Install-Module
 PS C:\> Get-InstalledModule
@@ -75,6 +78,7 @@ The first command finds the specified commands in the INT repository, and then u
 The second command uses Get-InstalledModule to verify the modules from the prior command are installed.
 
 ### Example 4: Find a command and save its module
+
 ```
 PS C:\> Find-Command -Name "Get-NestedRequiredModule4" -Repository "INT" | Save-Module -Path "C:\temp\" -Verbose
 ```
@@ -84,6 +88,7 @@ This command finds the specified command, and then passes it to Save-Module to s
 ## PARAMETERS
 
 ### -AllVersions
+
 Indicates that this cmdlet gets all versions of a module.
 
 ```yaml
@@ -99,6 +104,7 @@ Accept wildcard characters: False
 ```
 
 ### -Filter
+
 Finds modules based on the PackageManagement provider-specific search syntax.
 For NuGet, this is the equivalent of using the search bar on the PowerShell Gallery website.
 
@@ -115,6 +121,7 @@ Accept wildcard characters: False
 ```
 
 ### -MaximumVersion
+
 Specifies the maximum (exclusively) version of the module to include in results.
 The *MaximumVersion* and the *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
@@ -131,6 +138,7 @@ Accept wildcard characters: False
 ```
 
 ### -MinimumVersion
+
 Specifies the minimum version of the module to include in results.
 The *MinimumVersion* and the *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
@@ -147,6 +155,7 @@ Accept wildcard characters: False
 ```
 
 ### -ModuleName
+
 Specifies the name of the module in which to search for commands.
 The default is all modules.
 
@@ -163,6 +172,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies an array of names of commands to search for.
 
 ```yaml
@@ -178,6 +188,7 @@ Accept wildcard characters: False
 ```
 
 ### -Proxy
+
 Specifies a proxy server for the request, rather than connecting directly to the Internet resource.
 
 ```yaml
@@ -193,6 +204,7 @@ Accept wildcard characters: False
 ```
 
 ### -ProxyCredential
+
 Specifies a user account that has permission to use the proxy server that is specified by the **Proxy** parameter.
 
 ```yaml
@@ -208,6 +220,7 @@ Accept wildcard characters: False
 ```
 
 ### -Repository
+
 Specifies an array of registered repositories in which to search.
 The default is all repositories.
 
@@ -224,6 +237,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequiredVersion
+
 Specifies the version of the module to include in the results.
 
 ```yaml
@@ -239,6 +253,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tag
+
 Specifies an array of tags.
 
 ```yaml
@@ -254,6 +269,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

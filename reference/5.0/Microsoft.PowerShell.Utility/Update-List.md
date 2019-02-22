@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821870
 external help file:  Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 title:  Update-List
 ---
-
 # Update-List
 
 ## SYNOPSIS
@@ -16,17 +15,20 @@ Adds items to and removes items from a property value that contains a collection
 ## SYNTAX
 
 ### AddRemoveSet (Default)
+
 ```
 Update-List [-Add <Object[]>] [-Remove <Object[]>] [-InputObject <PSObject>] [[-Property] <String>]
  [<CommonParameters>]
 ```
 
 ### ReplaceSet
+
 ```
 Update-List -Replace <Object[]> [-InputObject <PSObject>] [[-Property] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Update-List** cmdlet adds items to and removes items from a property value of an object, and then it returns the updated object.
 This cmdlet is designed for properties that contain collections of objects.
 
@@ -44,6 +46,7 @@ To determine whether a cmdlet supports **Update-List**, see the cmdlet Help topi
 ## EXAMPLES
 
 ### Example 1: Add and remove items from a property value
+
 ```
 PS C:\> Get-MailBox | Update-List -Property aliases -Add "A","B" -Remove "X","Y" | Set-MailBox
 ```
@@ -59,6 +62,7 @@ The Aliases property fulfills the conditions of **Update-List**, because it stor
 The **Update-List** cmdlet returns the updated mailbox, which is piped to the **Set-MailBox** cmdlet, which changes the mailbox.
 
 ### Example 2: Add and remove items from a property value in a variable
+
 ```
 PS C:\> $M = Get-MailBox
 PS C:\> Update-List -InputObject $M -Property aliases -Add "A","B" -Remove "X", "Y" | Set-MailBox
@@ -75,6 +79,7 @@ It uses the *Property* parameter to specify the Aliases property and the *Add* a
 The command uses a pipeline operator (|) to send the updated mailbox object to the **Set-Mailbox** cmdlet, which changes the mailbox.
 
 ### Example 3: Add and remove items from a property value
+
 ```
 PS C:\> Get-MailBox | Set-MailBox -Alias (Update-List -Add "A", "B" -Remove "X","Y")
 ```
@@ -94,6 +99,7 @@ The **Update-List** command is enclosed in parentheses to ensure that it runs be
 When the **Set-Mailbox** command completes, the mailbox is changed.
 
 ### Example 4: Replace a property collection
+
 ```
 PS C:\> Update-List -InputObject $A -Property aliases -Replace "A", "B" | Set-MailBox
 ```
@@ -105,6 +111,7 @@ This command uses the *InputObject* parameter which, in this case, is equivalent
 ## PARAMETERS
 
 ### -Add
+
 Specifies the property values to be added to the collection.
 Enter the values in the order that they should appear in the collection.
 
@@ -121,6 +128,7 @@ Accept wildcard characters: False
 ```
 
 ### -InputObject
+
 Specifies the objects to be updated.
 You can also pipe the object to be updated to **Update-List**.
 
@@ -137,6 +145,7 @@ Accept wildcard characters: False
 ```
 
 ### -Property
+
 Specifies the property that contains the collection that is being updated.
 If you omit this parameter, **Update-List** returns an object that represents the change instead of changing the object.
 
@@ -153,6 +162,7 @@ Accept wildcard characters: False
 ```
 
 ### -Remove
+
 Specifies the property values to be removed from the collection.
 
 ```yaml
@@ -168,6 +178,7 @@ Accept wildcard characters: False
 ```
 
 ### -Replace
+
 Specifies a new collection.
 This parameter replaces all items in the original collection with the items specified by this parameter.
 
@@ -184,16 +195,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Management.Automation.PSObject
+
 You can pipe the objects to be updated to **Update-List**.
 
 ## OUTPUTS
 
 ### Objects or System.Management.Automation.PSListModifier
+
 **Update-List** returns the updated object, or it returns an object that represents the update action.
 
 ## NOTES

@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkID=517141
 external help file:  Microsoft.PowerShell.PackageManagement.dll-Help.xml
 title:  Set-PackageSource
 ---
-
 # Set-PackageSource
 
 ## SYNOPSIS
@@ -16,6 +15,7 @@ Replaces a package source for a specified package provider.
 ## SYNTAX
 
 ### SourceBySearch (Default)
+
 ```
 Set-PackageSource [-Credential <PSCredential>] [[-Name] <String>] [-Location <String>] [-NewLocation <String>]
  [-NewName <String>] [-Trusted] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [-ProviderName <String>]
@@ -23,12 +23,14 @@ Set-PackageSource [-Credential <PSCredential>] [[-Name] <String>] [-Location <St
 ```
 
 ### SourceByInputObject
+
 ```
 Set-PackageSource [-Credential <PSCredential>] [-NewLocation <String>] [-NewName <String>] [-Trusted]
  -InputObject <PackageSource> [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### PSModule:SourceByInputObject
+
 ```
 Set-PackageSource [-Credential <PSCredential>] [-NewLocation <String>] [-NewName <String>] [-Trusted] [-Force]
  [-ForceBootstrap] [-WhatIf] [-Confirm] [-PackageManagementProvider <String>] [-Scope <String>]
@@ -36,6 +38,7 @@ Set-PackageSource [-Credential <PSCredential>] [-NewLocation <String>] [-NewName
 ```
 
 ### PSModule:SourceBySearch
+
 ```
 Set-PackageSource [-Credential <PSCredential>] [-NewLocation <String>] [-NewName <String>] [-Trusted] [-Force]
  [-ForceBootstrap] [-WhatIf] [-Confirm] [-PackageManagementProvider <String>] [-Scope <String>]
@@ -43,12 +46,14 @@ Set-PackageSource [-Credential <PSCredential>] [-NewLocation <String>] [-NewName
 ```
 
 ## DESCRIPTION
+
 The **Set-PackageSource** replaces a package source for a specified package provider.
 Package sources are always managed by a package provider.
 
 ## EXAMPLES
 
 ### Example 1: Change a package source
+
 ```
 PS C:\> Set-PackageSource -Name "PsRep" -NewName "PS-Feature-Rep" -Trusted -ProviderName "PSModule"
 ```
@@ -59,6 +64,7 @@ It also changes the package source to be trusted, so that users who install pack
 ## PARAMETERS
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -74,6 +80,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
+
 Specifies a user account that has permission to install package providers.
 
 ```yaml
@@ -89,6 +96,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Forces the command to run without asking for user confirmation.
 
 ```yaml
@@ -104,6 +112,7 @@ Accept wildcard characters: False
 ```
 
 ### -ForceBootstrap
+
 Indicates that this cmdlet forces Package Management to automatically install the package provider for the specified package source.
 
 ```yaml
@@ -119,6 +128,7 @@ Accept wildcard characters: False
 ```
 
 ### -InputObject
+
 Specifies a package source ID object that represents the package that you want to change.
 Package source IDs are part of the results of the Get-PackageSource cmdlet.
 
@@ -135,6 +145,7 @@ Accept wildcard characters: False
 ```
 
 ### -Location
+
 Specifies the location to which a package source currently points.
 The value of this parameter can be a URI, a file path, or any other destination format supported by the package provider.
 
@@ -151,6 +162,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the current friendly name of a package source.
 
 ```yaml
@@ -166,6 +178,7 @@ Accept wildcard characters: False
 ```
 
 ### -NewLocation
+
 Specifies the new location to which you want a package source to point.
 The value of this parameter can be a URI, a file path, or any other destination format supported by the package provider.
 
@@ -182,6 +195,7 @@ Accept wildcard characters: False
 ```
 
 ### -NewName
+
 Specifies the new friendly name that you want to assign to a package source.
 
 ```yaml
@@ -197,6 +211,7 @@ Accept wildcard characters: False
 ```
 
 ### -PackageManagementProvider
+
 Specifies the Package Management provider.
 
 ```yaml
@@ -212,6 +227,7 @@ Accept wildcard characters: False
 ```
 
 ### -ProviderName
+
 Specifies the provider name.
 
 ```yaml
@@ -228,6 +244,7 @@ Accept wildcard characters: False
 ```
 
 ### -PublishLocation
+
 Specifies the publish location.
 
 ```yaml
@@ -243,6 +260,7 @@ Accept wildcard characters: False
 ```
 
 ### -Scope
+
 {{Fill Scope Description}}
 
 ```yaml
@@ -259,6 +277,7 @@ Accept wildcard characters: False
 ```
 
 ### -Trusted
+
 Indicates whether users trust packages from this source; that is, indicates whether users are prompted to verify that they trust the package source before they install a package from it.
 If you add this parameter, users are not prompted.
 
@@ -275,6 +294,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -291,11 +311,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### You cannot pipe input to this cmdlet.
+
 This cmdlet does not generate any output.
 
 ## OUTPUTS

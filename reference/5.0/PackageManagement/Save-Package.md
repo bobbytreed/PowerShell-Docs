@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkID=517140
 external help file:  Microsoft.PowerShell.PackageManagement.dll-Help.xml
 title:  Save-Package
 ---
-
 # Save-Package
 
 ## SYNOPSIS
@@ -16,6 +15,7 @@ Saves packages to the local computer without installing them.
 ## SYNTAX
 
 ### PackageBySearch
+
 ```
 Save-Package [[-Name] <String[]>] [-RequiredVersion <String>] [-MinimumVersion <String>]
  [-MaximumVersion <String>] [-Source <String[]>] [-Path <String>] [-LiteralPath <String>]
@@ -24,12 +24,14 @@ Save-Package [[-Name] <String[]>] [-RequiredVersion <String>] [-MinimumVersion <
 ```
 
 ### PackageByInputObject
+
 ```
 Save-Package [-Path <String>] [-LiteralPath <String>] -InputObject <SoftwareIdentity>
  [-Credential <PSCredential>] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### PSModule:PackageByInputObject
+
 ```
 Save-Package [-Path <String>] [-LiteralPath <String>] [-Credential <PSCredential>] [-Force] [-ForceBootstrap]
  [-WhatIf] [-Confirm] [-PackageManagementProvider <String>] [-Scope <String>] [-PublishLocation <String>]
@@ -38,6 +40,7 @@ Save-Package [-Path <String>] [-LiteralPath <String>] [-Credential <PSCredential
 ```
 
 ### PSModule
+
 ```
 Save-Package [-Path <String>] [-LiteralPath <String>] [-Credential <PSCredential>] [-Force] [-ForceBootstrap]
  [-WhatIf] [-Confirm] [-PackageManagementProvider <String>] [-Scope <String>] [-PublishLocation <String>]
@@ -46,6 +49,7 @@ Save-Package [-Path <String>] [-LiteralPath <String>] [-Credential <PSCredential
 ```
 
 ## DESCRIPTION
+
 The **Save-Package** cmdlet saves packages to the local computer without installing them.
 This cmdlet saves the newest version of a package unless you specify the **AllVersions** parameter.
 The **Path** and **LiteralPath** parameters are mutually exclusive, and cannot be added to the same command.
@@ -53,6 +57,7 @@ The **Path** and **LiteralPath** parameters are mutually exclusive, and cannot b
 ## EXAMPLES
 
 ### Example 1: Save a package to the local computer
+
 ```
 PS C:\> Save-Package -Name "DSCAccelerator" -Path "C:\Users\TestUser\Downloads"
 ```
@@ -60,6 +65,7 @@ PS C:\> Save-Package -Name "DSCAccelerator" -Path "C:\Users\TestUser\Downloads"
 This example saves the newest version of a package, DSCAccelerator, to the C:\Users\TestUser\Downloads folder.
 
 ### Example 2: Save an exact version of a package
+
 ```
 PS C:\> Save-Package -Name "DSCAccelerator" -RequiredVersion "2.1.2" -Path "C:\Users\TestUser\Downloads"
 ```
@@ -67,6 +73,7 @@ PS C:\> Save-Package -Name "DSCAccelerator" -RequiredVersion "2.1.2" -Path "C:\U
 This example saves only version 2.1.2 of a package, DSCAccelerator, to the C:\Users\TestUser\Downloads folder.
 
 ### Example 3: Save a package by piping results of Find-Package
+
 ```
 PS C:\> Find-Package -Name "DSCAccelerator" -RequiredVersion "2.1.2" | Save-Package -Path "C:\Users\TestUser\Downloads"
 ```
@@ -74,6 +81,7 @@ PS C:\> Find-Package -Name "DSCAccelerator" -RequiredVersion "2.1.2" | Save-Pack
 This command saves a package named DSCAccelerator by first locating the exact package with the **Find-Package** cmdlet, then piping the results of **Find-Package** to the **Save-Package** cmdlet.
 
 ### Example 4: Save a package to a local folder, then install the package
+
 ```
 PS C:\> Save-Package "notepad2" -Path "C:\temp"
 PS C:\> Install-Package "C:\temp\notepad2.4.2.25.3.nupkg"
@@ -85,6 +93,7 @@ The second command installs the saved package from the C:\temp folder, instead o
 ## PARAMETERS
 
 ### -AllVersions
+
 Indicates that this cmdlet saves all available versions of the package.
 By default, **Save-Package** only returns the newest available version.
 
@@ -101,6 +110,7 @@ Accept wildcard characters: False
 ```
 
 ### -Command
+
 Specifies one or more commands included in the package.
 
 ```yaml
@@ -116,6 +126,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -131,6 +142,7 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
+
 Specifies a user account that has rights to save a package from a specified package provider or source.
 
 ```yaml
@@ -146,6 +158,7 @@ Accept wildcard characters: False
 ```
 
 ### -DscResource
+
 Specifies one or more Desired State Configuration (DSC) resources for the package.
 
 ```yaml
@@ -161,6 +174,7 @@ Accept wildcard characters: False
 ```
 
 ### -Filter
+
 Specifies a filter for the package.
 
 ```yaml
@@ -176,6 +190,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Indicates that this cmdlet overrides restrictions that prevent the command from succeeding, as long as running the command does not compromise security.
 
 ```yaml
@@ -191,6 +206,7 @@ Accept wildcard characters: False
 ```
 
 ### -ForceBootstrap
+
 Indicates that this cmdlet forces Package Management to automatically install the package provider for the specified package.
 
 ```yaml
@@ -206,6 +222,7 @@ Accept wildcard characters: False
 ```
 
 ### -Includes
+
 Indicates the resources that the package includes.
 
 ```yaml
@@ -222,6 +239,7 @@ Accept wildcard characters: False
 ```
 
 ### -InputObject
+
 A software ID object that represents the package that you want to save.
 Software IDs are part of the results of the Find-Package cmdlet.
 
@@ -238,6 +256,7 @@ Accept wildcard characters: False
 ```
 
 ### -LiteralPath
+
 Specifies the literal path to which you want to save the package.
 You cannot add both this parameter and the *Path* parameter to the same command.
 
@@ -254,6 +273,7 @@ Accept wildcard characters: False
 ```
 
 ### -MaximumVersion
+
 Specifies the maximum allowed version of the package that you want to save.
 If you do not add this parameter, **Save-Package** saves the highest available version of the package.
 
@@ -270,6 +290,7 @@ Accept wildcard characters: False
 ```
 
 ### -MinimumVersion
+
 Specifies the minimum allowed version of the package that you want to find.
 If you do not add this parameter, **Find-Package** finds the highest available version of the package that also satisfies any maximum specified version specified by the *MaximumVersion* parameter.
 
@@ -286,6 +307,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies one or more package names.
 
 ```yaml
@@ -301,6 +323,7 @@ Accept wildcard characters: False
 ```
 
 ### -PackageManagementProvider
+
 Specifies the Package Management provider.
 
 ```yaml
@@ -316,6 +339,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
+
 Specifies the path at which to save the package.
 
 ```yaml
@@ -331,6 +355,7 @@ Accept wildcard characters: False
 ```
 
 ### -ProviderName
+
 Specifies one or more provider names.
 
 ```yaml
@@ -347,6 +372,7 @@ Accept wildcard characters: False
 ```
 
 ### -PublishLocation
+
 Specifies the publish location.
 
 ```yaml
@@ -362,6 +388,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequiredVersion
+
 Specifies the exact version of the package to save.
 If you do not add this parameter, **Save-Package** finds the highest available version of the provider that also satisfies any maximum version specified by the *MaximumVersion* parameter.
 
@@ -378,6 +405,7 @@ Accept wildcard characters: False
 ```
 
 ### -Scope
+
 {{Fill Scope Description}}
 
 ```yaml
@@ -394,6 +422,7 @@ Accept wildcard characters: False
 ```
 
 ### -Source
+
 Specifies one or more package sources.
 
 ```yaml
@@ -409,6 +438,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tag
+
 Specifies a tag to search for within the package metadata.
 
 ```yaml
@@ -424,6 +454,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -440,6 +471,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

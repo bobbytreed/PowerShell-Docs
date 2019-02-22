@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821663
 external help file:  PSGet-help.xml
 title:  Install-Module
 ---
-
 # Install-Module
 
 ## SYNOPSIS
