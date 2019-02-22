@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821675
 external help file:  PSGet-help.xml
 title:  Unregister-PSRepository
 ---
-
 # Unregister-PSRepository
 
 ## SYNOPSIS
@@ -20,11 +19,13 @@ Unregister-PSRepository [-Name] <String[]> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Unregister-PSRepository** cmdlet unregisters a repository for the current user.
 
 ## EXAMPLES
 
 ### Example 1: Unregister a repository
+
 ```
 PS C:\> Unregister-PSRepository -Name "myNuGetSource"
 ```
@@ -32,6 +33,7 @@ PS C:\> Unregister-PSRepository -Name "myNuGetSource"
 This command unregisters the repository named myNuGetSource.
 
 ### Example 2: Unregister all repositories
+
 ```
 PS C:\> Get-PSRepository | Unregister-PSRepository
 ```
@@ -42,6 +44,7 @@ Note that PSGallery is a built-in repository and cannot be unregistered.
 ## PARAMETERS
 
 ### -Name
+
 Specifies an array of names of the repositories to remove.
 
 ```yaml
@@ -57,6 +60,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

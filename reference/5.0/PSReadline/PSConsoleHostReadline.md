@@ -6,7 +6,6 @@ keywords: powershell,cmdlet
 external help file: PSReadLine-help.xml
 title: PSConsoleHostReadLine
 ---
-
 # PSConsoleHostReadLine
 
 ## SYNOPSIS

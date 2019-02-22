@@ -6,7 +6,6 @@ Module Name: PSDiagnostics
 ms.date: 11/29/2018
 schema: 2.0.0
 ---
-
 # Enable-WSManTrace
 
 ## SYNOPSIS
@@ -19,6 +18,7 @@ Enable-WSManTrace [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This cmdlet starts a logging session with the WSMan providers enabled. The following event providers are enabled:
 
 - Event Forwarding
@@ -70,4 +70,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [Start-Trace](start-trace.md)
 
 [Disable-WSManTrace](Disable-WSManTrace.md)
-

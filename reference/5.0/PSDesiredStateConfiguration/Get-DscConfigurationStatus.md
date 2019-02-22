@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821456
 external help file:  Get-DscConfigurationStatus.cdxml-help.xml
 title:  Get-DscConfigurationStatus
 ---
-
 # Get-DscConfigurationStatus
 
 ## SYNOPSIS
@@ -21,6 +20,7 @@ Get-DscConfigurationStatus [-All] [-CimSession <CimSession[]>] [-ThrottleLimit <
 ```
 
 ## DESCRIPTION
+
 The **Get-DscConfigurationStatus** cmdlet retrieves detailed information about completed configuration runs on the system.
 By default, it returns the information about the last configuration run.
 This cmdlet is useful for finding historical information about configuration runs, such as when the configurations were run, the status of the runs, the number of resources in the configurations, and which resources succeeded or failed.
@@ -28,6 +28,7 @@ This cmdlet is useful for finding historical information about configuration run
 ## EXAMPLES
 
 ### Example 1: Get information on the last configuration run
+
 ```
 PS C:\> Get-DscConfigurationStatus
 ```
@@ -35,6 +36,7 @@ PS C:\> Get-DscConfigurationStatus
 This command gets information on the last configuration run.
 
 ### Example 2: Get information on all configurations
+
 ```
 PS C:\> Get-DscConfigurationStatus -All
 ```
@@ -42,6 +44,7 @@ PS C:\> Get-DscConfigurationStatus -All
 This command gets information about all the configurations that were run on the system, including the Windows PowerShell Desired State Configuration (DSC) consistency check.
 
 ### Example 3: Get information on the configuration run on a remote computer
+
 ```
 PS C:\> Get-DscConfigurationStaus -CimSession "Server01"
 ```
@@ -52,6 +55,7 @@ This uses the WSMan transport to connect to the remote computer and requires tha
 ## PARAMETERS
 
 ### -All
+
 Indicates that this cmdlet retrieves information about all the configuration runs on the computer, including the configuration application and the consistency check.
 
 ```yaml
@@ -67,6 +71,7 @@ Accept wildcard characters: False
 ```
 
 ### -AsJob
+
 Indicates that this cmdlet runs the command as a background job.
 
 If you specify the *AsJob* parameter, the command returns an object that represents the job, and then displays the command prompt.
@@ -93,6 +98,7 @@ Accept wildcard characters: False
 ```
 
 ### -CimSession
+
 Runs the cmdlet in a remote session or on a remote computer.
 Enter a computer name or a session object, such as the output of a [New-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/new-cimsession) or [Get-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/get-cimsession) cmdlet.
 The default is the current session on the local computer.
@@ -110,6 +116,7 @@ Accept wildcard characters: False
 ```
 
 ### -ThrottleLimit
+
 Specifies the maximum number of concurrent operations that can be established to run the cmdlet.
 If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer.
 The throttle limit applies only to the current cmdlet, not to the session or to the computer.
@@ -127,6 +134,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

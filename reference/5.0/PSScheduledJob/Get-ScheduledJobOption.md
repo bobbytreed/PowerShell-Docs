@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821687
 external help file:  Microsoft.PowerShell.ScheduledJob.dll-Help.xml
 title:  Get-ScheduledJobOption
 ---
-
 # Get-ScheduledJobOption
 
 ## SYNOPSIS
@@ -16,21 +15,25 @@ Gets the job options of scheduled jobs.
 ## SYNTAX
 
 ### JobDefinition (Default)
+
 ```
 Get-ScheduledJobOption [-InputObject] <ScheduledJobDefinition> [<CommonParameters>]
 ```
 
 ### JobDefinitionId
+
 ```
 Get-ScheduledJobOption [-Id] <Int32> [<CommonParameters>]
 ```
 
 ### JobDefinitionName
+
 ```
 Get-ScheduledJobOption [-Name] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Get-ScheduledJobOption** cmdlet gets the job options of scheduled jobs.
 You can use this command to examine the job options or to pipe the job options to other cmdlets.
 
@@ -50,6 +53,7 @@ This cmdlet was introduced in Windows PowerShell 3.0.
 ## EXAMPLES
 
 ### Example 1: Get job options
+
 ```
 PS C:\> Get-ScheduledJobOption -Name "*Backup*"
 StartIfOnBatteries     : False
@@ -85,6 +89,7 @@ This command gets the job options of scheduled jobs that have BackUp in their na
 The results show the job options object that **Get-ScheduledJobOption** returned.
 
 ### Example 2: Get all job options
+
 ```
 PS C:\> Get-ScheduledJob | Get-ScheduledJobOptions
 ```
@@ -95,6 +100,7 @@ It uses the Get-ScheduledJob cmdlet to get the scheduled jobs on the local compu
 A pipeline operator (|) sends the scheduled jobs to the **Get-ScheduledJobOptions** cmdlet, which gets the job options of each scheduled job.
 
 ### Example 3: Get selected job options
+
 ```
 PS C:\> Get-ScheduledJob | Get-ScheduledJobOption | Where {$_.RunElevated -and !$_.WaketoRun}
 StartIfOnBatteries     : False
@@ -140,6 +146,7 @@ The first command gets job options in which the RunElevated property has a value
 The output shows the **JobOptions** object that was selected.
 
 ### Example 4: Use job options to create a new job
+
 ```
 PS C:\> $Opts = Get-ScheduledJobOption -Name "BackupTestLogs"
 PS C:\> Register-ScheduledJob -Name "Archive-Scripts" -FilePath "\\Srv01\Scripts\ArchiveScripts.ps1" -ScheduledJobOption $Opts
@@ -154,6 +161,7 @@ The second command uses Register-ScheduledJob cmdlet to create a new scheduled j
 The value of the *ScheduledJobOption* parameter is the options object in the $Opts variable.
 
 ### Example 5: Get job options from a remote computer
+
 ```
 PS C:\> $O = Invoke-Command -ComputerName "Srv01" -ScriptBlock {Get-ScheduledJob -Name "DataDemon" }
 ```
@@ -164,6 +172,7 @@ The command saves the options in the $O variable.
 ## PARAMETERS
 
 ### -Id
+
 Specifies the identification number of a scheduled job.
 **Get-ScheduledJobOption** gets the job options of the specified scheduled job.
 
@@ -182,6 +191,7 @@ Accept wildcard characters: False
 ```
 
 ### -InputObject
+
 Specifies a scheduled job.
 Enter a variable that contains a **ScheduledJob** object or type a command or expression that gets a **ScheduledJob** object, such as a Get-ScheduledJob command.
 You can also pipe a **ScheduledJob** object to **Get-ScheduledJobOption**.
@@ -199,6 +209,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the names of scheduled jobs.
 **Get-ScheduledJobOption** gets the job options of the specified scheduled job.
 Wildcards are supported.
@@ -218,11 +229,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition
+
 You can pipe a scheduled job from Get-ScheduledJob to **Get-ScheduledJobOption**.
 
 ## OUTPUTS

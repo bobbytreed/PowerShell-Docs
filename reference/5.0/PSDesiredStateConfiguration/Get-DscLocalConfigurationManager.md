@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821457
 external help file:  Get-DSCLocalConfigurationManager.cdxml-help.xml
 title:  Get-DscLocalConfigurationManager
 ---
-
 # Get-DscLocalConfigurationManager
 
 ## SYNOPSIS
@@ -21,6 +20,7 @@ Get-DscLocalConfigurationManager [-CimSession <CimSession[]>] [-ThrottleLimit <I
 ```
 
 ## DESCRIPTION
+
 The **Get-DscLocalConfigurationManager** cmdlet gets Local Configuration Manager (LCM) settings, or meta-configuration, and the states of LCM for the node.
 Specify computers by using Common Information Model (CIM) sessions.
 If you do not specify a target computer, the cmdlet gets the configuration settings from the local computer.
@@ -28,6 +28,7 @@ If you do not specify a target computer, the cmdlet gets the configuration setti
 ## EXAMPLES
 
 ### Example 1: Get LCM settings for the local computer
+
 ```
 PS C:\> Get-DscLocalConfigurationManager
 ```
@@ -35,6 +36,7 @@ PS C:\> Get-DscLocalConfigurationManager
 This command gets LCM settings for the local computer.
 
 ### Example 2: Get LCM settings for a specified computer
+
 ```
 PS C:\> $Session = New-CimSession -ComputerName "Server01" -Credential ACCOUNTS\PattiFuller
 PS C:\> Get-DscLocalConfigurationManager -CimSession $Session
@@ -53,6 +55,7 @@ The second command gets Local Configuration Manager settings for the computers i
 ## PARAMETERS
 
 ### -AsJob
+
 Indicates that this cmdlet runs the command as a background job.
 
 If you specify the *AsJob* parameter, the command returns an object that represents the job, and then displays the command prompt.
@@ -79,6 +82,7 @@ Accept wildcard characters: False
 ```
 
 ### -CimSession
+
 Runs the cmdlet in a remote session or on a remote computer.
 Enter a computer name or a session object, such as the output of a [New-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/new-cimsession) or [Get-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/get-cimsession) cmdlet.
 The default is the current session on the local computer.
@@ -96,6 +100,7 @@ Accept wildcard characters: False
 ```
 
 ### -ThrottleLimit
+
 Specifies the maximum number of concurrent operations that can be established to run the cmdlet.
 If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer.
 The throttle limit applies only to the current cmdlet, not to the session or to the computer.
@@ -113,6 +118,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

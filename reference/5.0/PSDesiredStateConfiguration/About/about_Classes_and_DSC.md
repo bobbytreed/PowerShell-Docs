@@ -5,11 +5,9 @@ locale:  en-us
 keywords:  powershell,cmdlet
 title:  about_Classes_and_DSC
 ---
-
 # About Classes and Desired State Configuration
 
 ## Short description
-
 Describes how you can use classes to develop in PowerShell with Desired State
 Configuration (DSC).
 

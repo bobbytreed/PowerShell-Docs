@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821681
 external help file:  Microsoft.PowerShell.ScheduledJob.dll-Help.xml
 title:  Disable-JobTrigger
 ---
-
 # Disable-JobTrigger
 
 ## SYNOPSIS
@@ -20,6 +19,7 @@ Disable-JobTrigger [-InputObject] <ScheduledJobTrigger[]> [-PassThru] [-WhatIf] 
 ```
 
 ## DESCRIPTION
+
 The **Disable-JobTrigger** cmdlet temporarily disables the job triggers of scheduled jobs.
 Disabling preserves all job trigger properties, but it prevents the job trigger from starting the scheduled job.
 
@@ -42,6 +42,7 @@ This cmdlet was introduced in Windows PowerShell 3.0.
 ## EXAMPLES
 
 ### Example 1: Disable a job trigger
+
 ```
 PS C:\> Get-JobTrigger -Name "Backup-Archives" -TriggerID 1 | Disable-JobTrigger
 ```
@@ -52,6 +53,7 @@ The command uses the Get-JobTrigger cmdlet to get the job trigger.
 A pipeline operator sends the job trigger to the **Disable-JobTrigger** cmdlet, which disables it.
 
 ### Example 2: Disable all job triggers
+
 ```
 The first command uses the Get-ScheduledJob cmdlet to get the Backup-Archives and Inventory scheduled jobs. A pipeline operator (|) sends the scheduled jobs to the Get-JobTrigger cmdlet, which gets all job triggers of the scheduled jobs. Another pipeline operator sends the job triggers to the **Disable-JobTrigger** cmdlet, which disables them.The first command uses the **Get-ScheduledJob** cmdlet to get the jobs, because its *Name* parameter takes multiple names.
 PS C:\> Get-ScheduledJob -Name "Backup-Archives,Inventory" | Get-JobTrigger | Disable-JobTrigger
@@ -69,6 +71,7 @@ Id Frequency At                     DaysOfWeek Enabled JobName
 These commands disable all job triggers on two scheduled jobs and display the results.
 
 ### Example 3: Disable job trigger of a scheduled job on a remote computer
+
 ```
 PS C:\> Invoke-Command -ComputerName Server01 {Get-JobTrigger -Name DeployPackage | Where-Object {$_.Frequency -eq "Daily"} | Disable-JobTrigger}
 ```
@@ -83,6 +86,7 @@ A pipeline operator sends the daily job triggers to the **Disable-JobTrigger** c
 ## PARAMETERS
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -98,6 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### -InputObject
+
 Specifies the job trigger to be disabled.
 Enter a variable that contains  **ScheduledJobTrigger** objects or type a command or expression that gets **ScheduledJobTriger** objects, such as a Get-JobTrigger command.
 You can also pipe a **ScheduledJobTrigger** object to **Disable-JobTrigger**.
@@ -115,6 +120,7 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
+
 Returns an object representing the item with which you are working.
 By default, this cmdlet does not generate any output.
 
@@ -131,6 +137,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -147,19 +154,23 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### Microsoft.PowerShell.ScheduledJob.ScheduledJobTrigger
+
 You can pipe job triggers to **Disable-JobTrigger**.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not generate any output.
 
 ## NOTES
+
 * **Disable-JobTrigger** does not generate errors or warnings if you disable a job trigger that is already disabled.
 
 ## RELATED LINKS

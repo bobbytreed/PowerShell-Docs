@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=627544
 external help file:  Microsoft.Windows.DSC.CoreConfProviders.dll-Help.xml
 title:  Invoke-DscResource
 ---
-
 # Invoke-DscResource
 
 ## SYNOPSIS
@@ -21,6 +20,7 @@ Invoke-DscResource [-Name] <String> [-Method] <String> [-ModuleName <ModuleSpeci
 ```
 
 ## DESCRIPTION
+
 The **Invoke-DscResource** cmdlet runs a method of a specified Windows PowerShell Desired State Configuration (DSC) resource.
 Before you run this cmdlet, set the refresh mode of the Local Configuration Manager (LCM) to Disabled.
 
@@ -31,6 +31,7 @@ This cmdlet also enables debugging of resources when the DSC engine or LCM is ru
 ## EXAMPLES
 
 ### Example 1: Invoke the Set method of a resource by specifying its mandatory properties
+
 ```
 PS C:\> Invoke-DscResource -Name Log -Method Set -Property @{Message = 'Hello World'} -ModuleName PSDesiredStateConfiguration
 ```
@@ -38,6 +39,7 @@ PS C:\> Invoke-DscResource -Name Log -Method Set -Property @{Message = 'Hello Wo
 This command invokes the **Set** method of a resource named Log and specifies a **Message** property for it.
 
 ### Example 2: Invoke the Test method of a resource for a specified module
+
 ```
 PS C:\> Invoke-DscResource -Name WindowsProcess -Method Test -Property @{Path = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'; Arguments = ''} -ModuleName PSDesiredStateConfiguration
 ```
@@ -47,6 +49,7 @@ This command invokes the **Test** method of a resource named WindowsProcess, whi
 ## PARAMETERS
 
 ### -Method
+
 Specifies the method of the resource that this cmdlet invokes.
 The acceptable values for this parameter are: Get, Set, and Test.
 
@@ -64,6 +67,7 @@ Accept wildcard characters: False
 ```
 
 ### -ModuleName
+
 Specifies the name of the module from which this cmdlet invokes the specified resource.
 
 ```yaml
@@ -79,6 +83,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the name of the DSC resource to start.
 
 ```yaml
@@ -94,6 +99,7 @@ Accept wildcard characters: False
 ```
 
 ### -Property
+
 Specifies the resource property name and its value in a hash table as key and value, respectively.
 Use the Get-DscResource cmdlet to discover resource properties and their types.
 
@@ -110,6 +116,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

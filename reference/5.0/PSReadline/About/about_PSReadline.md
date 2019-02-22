@@ -5,11 +5,9 @@ locale:  en-us
 keywords:  powershell
 title:  About PSReadLine
 ---
-
 # PSReadLine
 
 ## about_PSReadLine
-
 ## SHORT DESCRIPTION
 
 PSReadLine provides an improved command line editing experience in the

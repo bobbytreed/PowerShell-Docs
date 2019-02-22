@@ -6,7 +6,6 @@ Module Name: PSDiagnostics
 ms.date:  11/27/2018
 schema: 2.0.0
 ---
-
 # Stop-Trace
 
 ## SYNOPSIS
@@ -40,6 +39,7 @@ Stop-Trace -SessionName 'wsmlog'
 ## PARAMETERS
 
 ### -ETS
+
 Send commands to Event Trace Sessions directly without saving or scheduling.
 
 ```yaml
@@ -55,6 +55,7 @@ Accept wildcard characters: False
 ```
 
 ### -SessionName
+
 The name of the Event Trace session to be stopped.
 
 ```yaml
@@ -70,6 +71,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
 -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose,
 -WarningAction, and -WarningVariable. For more information, see

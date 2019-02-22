@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821688
 external help file:  Microsoft.PowerShell.ScheduledJob.dll-Help.xml
 title:  New-JobTrigger
 ---
-
 # New-JobTrigger
 
 ## SYNOPSIS
@@ -16,33 +15,39 @@ Creates a job trigger for a scheduled job.
 ## SYNTAX
 
 ### Once (Default)
+
 ```
 New-JobTrigger [-RandomDelay <TimeSpan>] -At <DateTime> [-Once] [-RepetitionInterval <TimeSpan>]
  [-RepetitionDuration <TimeSpan>] [-RepeatIndefinitely] [<CommonParameters>]
 ```
 
 ### Daily
+
 ```
 New-JobTrigger [-DaysInterval <Int32>] [-RandomDelay <TimeSpan>] -At <DateTime> [-Daily] [<CommonParameters>]
 ```
 
 ### Weekly
+
 ```
 New-JobTrigger [-WeeksInterval <Int32>] [-RandomDelay <TimeSpan>] -At <DateTime> -DaysOfWeek <DayOfWeek[]>
  [-Weekly] [<CommonParameters>]
 ```
 
 ### AtStartup
+
 ```
 New-JobTrigger [-RandomDelay <TimeSpan>] [-AtStartup] [<CommonParameters>]
 ```
 
 ### AtLogon
+
 ```
 New-JobTrigger [-RandomDelay <TimeSpan>] [-User <String>] [-AtLogOn] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **New-JobTrigger** cmdlet creates a job trigger that starts a scheduled job on a one-time or recurring schedule, or when an event occurs.
 
 You can use the **ScheduledJobTrigger** object that **New-JobTrigger** returns to set a job trigger for a new or existing scheduled job.
@@ -61,6 +66,7 @@ This cmdlet was introduced in Windows PowerShell 3.0.
 ## EXAMPLES
 
 ### Example 1: Once Schedule
+
 ```
 PS C:\> New-JobTrigger -Once -At "1/20/2012 3:00 AM"
 ```
@@ -71,6 +77,7 @@ The *At* parameter value includes an explicit date, not just a time.
 If the date were omitted, the trigger would be created with the current date and 3:00 AM time, which is likely to represent a time in the past.
 
 ### Example 2: Daily Schedule
+
 ```
 PS C:\> New-JobTrigger -Daily -At "4:15 AM" -DaysInterval 3
 Id         Frequency       Time                   DaysOfWeek              Enabled
@@ -84,6 +91,7 @@ Because the value of the *At* parameter does not include a date, the current dat
 If the date and time is in the past, the scheduled job is started at the next occurrence, which is 3 days later from the *At* parameter value.
 
 ### Example 3: Weekly Schedule
+
 ```
 PS C:\> New-JobTrigger -Weekly -DaysOfWeek Monday, Wednesday, Friday -At "23:00" -WeeksInterval 4
 Id Frequency Time                  DaysOfWeek                  Enabled
@@ -96,6 +104,7 @@ This command creates a job trigger that starts a scheduled job every 4 weeks on 
 You can also enter the *DaysOfWeek* parameter value in integers, such as `-DaysOfWeek 1, 5`.
 
 ### Example 4: Logon Schedule
+
 ```
 PS C:\> New-JobTrigger -AtLogOn -User Domain01\Admin01
 ```
@@ -103,6 +112,7 @@ PS C:\> New-JobTrigger -AtLogOn -User Domain01\Admin01
 This command creates a job trigger that starts a scheduled job whenever the domain administrator logs onto the computer.
 
 ### Example 5: Using a Random Delay
+
 ```
 PS C:\> New-JobTrigger -Daily -At 1:00 -RandomDelay 00:20:00
 ```
@@ -115,6 +125,7 @@ You can use a random delay for sampling, load balancing, and other administrativ
 When setting the delay value, review the effective and default values of the New-ScheduledJobOption cmdlet and coordinate the delay with the option settings.
 
 ### Example 6: Create a Job Trigger for a New Scheduled Job
+
 ```
 The first command uses the **New-JobTrigger** cmdlet to create a job trigger that starts a job every Monday, Wednesday, and Friday at 12:01 AM. The command saves the job trigger in the $T variable.
 PS C:\> $T = New-JobTrigger -Weekly -DaysOfWeek 1,3,5 -At 12:01AM
@@ -127,6 +138,7 @@ PS C:\> Register-ScheduledJob -Name Test-HelpFiles -FilePath C:\Scripts\Test-Hel
 These commands use a job trigger to create a new scheduled job.
 
 ### Example 7: Add a Job Trigger to a Scheduled Job
+
 ```
 PS C:\> Add-JobTrigger -Name SynchronizeApps -Trigger (New-JobTrigger -Daily -At 3:10AM)
 ```
@@ -140,6 +152,7 @@ The value of the *Trigger* parameter is a **New-JobTrigger** command that runs t
 When the command completes, SynchronizeApps is a scheduled job that runs at the times specified by the job trigger.
 
 ### Example 8: Create a repeating job trigger
+
 ```
 PS C:\> New-JobTrigger -Once -At "09/12/2013 1:00:00" -RepetitionInterval (New-TimeSpan -Hours 1) -RepetitionDuration (New-Timespan -Hours 48)
 ```
@@ -147,6 +160,7 @@ PS C:\> New-JobTrigger -Once -At "09/12/2013 1:00:00" -RepetitionInterval (New-T
 This command creates a job trigger that runs a job every 60 minutes for 48 hours beginning on September 12, 2013 at 1:00 AM.
 
 ### Example 9: Stop a repeating job trigger
+
 ```
 PS C:\> Get-JobTrigger -Name SecurityCheck | Set-JobTrigger -RepetitionInterval 0:00 -RepetitionDuration 0:00
 ```
@@ -156,6 +170,7 @@ This command forcibly stops the SecurityCheck job, which is triggered to run eve
 To prevent the job from repeating, the command uses the Get-JobTrigger to get the job trigger of the SecurityCheck job and the Set-JobTrigger cmdlet to change the repetition interval and repetition duration of the job trigger to zero (0).
 
 ### Example 10: Create an hourly job trigger
+
 ```
 PS C:\> New-JobTrigger -Once -At "9/21/2012 0am" -RepetitionInterval (New-TimeSpan -Hour 12) -RepetitionDuration ([TimeSpan]::MaxValue)
 ```
@@ -166,6 +181,7 @@ The schedule begins tomorrow (9/21/2012) at midnight (0:00 AM).
 ## PARAMETERS
 
 ### -At
+
 Starts the job at the specified date and time.
 Enter a **DateTime** object, such as one that the Get-Date cmdlet returns, or a string that can be converted to a date and time, such as "April 19, 2012 15:00", "12/31", or "3am".
 If you don't specify an element of the date, such as the year, the date in the trigger has the corresponding element from the current date.
@@ -188,6 +204,7 @@ Accept wildcard characters: False
 ```
 
 ### -AtLogOn
+
 Starts the scheduled job when the specified users log on to the computer.
 To specify a user, use the *User* parameter.
 
@@ -204,6 +221,7 @@ Accept wildcard characters: False
 ```
 
 ### -AtStartup
+
 Starts the scheduled job when Windows starts.
 
 ```yaml
@@ -219,6 +237,7 @@ Accept wildcard characters: False
 ```
 
 ### -Daily
+
 Specifies a recurring daily job schedule.
 Use the other parameters in the *Daily* parameter set to specify the schedule details.
 
@@ -235,6 +254,7 @@ Accept wildcard characters: False
 ```
 
 ### -DaysInterval
+
 Specifies the number of days between occurrences on a daily schedule.
 For example, a value of 3 starts the scheduled job on days 1, 4, 7 and so on.
 The default value is 1.
@@ -252,6 +272,7 @@ Accept wildcard characters: False
 ```
 
 ### -DaysOfWeek
+
 Specifies the days of the week on which a weekly scheduled job runs.
 Enter day names, such as "Monday" or integers 0-6, where 0 represents Sunday.
 This parameter is required in the Weekly parameter set.
@@ -275,6 +296,7 @@ Accept wildcard characters: False
 ```
 
 ### -Once
+
 Specifies a non-recurring (one time) or custom repeating schedule.
 To create a repeating schedule, use the *Once* parameter with the *RepetitionDuration* and *RepetitionInterval* parameters.
 
@@ -291,6 +313,7 @@ Accept wildcard characters: False
 ```
 
 ### -RandomDelay
+
 Enables a random delay that begins at the scheduled start time, and sets the maximum delay value.
 The length of the delay is set pseudo-randomly for each start and varies from no delay to the time specified by the value of this parameter.
 The default value, zero (00:00:00), disables the random delay.
@@ -310,6 +333,7 @@ Accept wildcard characters: False
 ```
 
 ### -RepeatIndefinitely
+
 This parameter, available starting in Windows PowerShell 4.0, eliminates the necessity of specifying a **TimeSpan.MaxValue** value for the *RepetitionDuration* parameter to run a scheduled job repeatedly, for an indefinite period.
 
 ```yaml
@@ -325,6 +349,7 @@ Accept wildcard characters: False
 ```
 
 ### -RepetitionDuration
+
 Repeats the job until the specified time expires.
 The repetition frequency is determined by the value of the *RepetitionInterval* parameter.
 For example, if the value of **RepetitionInterval** is 5 minutes and the value of **RepetitionDuration** is 2 hours, the job is triggered every five minutes for two hours.
@@ -350,6 +375,7 @@ Accept wildcard characters: False
 ```
 
 ### -RepetitionInterval
+
 Repeats the job at the specified time interval.
 For example, if the value of this parameter is 2 hours, the job is triggered every two hours.
 The default value, 0, does not repeat the job.
@@ -371,6 +397,7 @@ Accept wildcard characters: False
 ```
 
 ### -User
+
 Specifies the users who trigger an *AtLogon* start of a scheduled job.
 Enter the name of a user in \<UserName\> or \<Domain\Username\> format or enter an asterisk (*) to represent all users.
 The default value is all users.
@@ -388,6 +415,7 @@ Accept wildcard characters: False
 ```
 
 ### -Weekly
+
 Specifies a recurring weekly job schedule.
 Use the other parameters in the Weekly parameter set to specify the schedule details.
 
@@ -404,6 +432,7 @@ Accept wildcard characters: False
 ```
 
 ### -WeeksInterval
+
 Specifies the number of weeks between occurrences on a weekly job schedule.
 For example, a value of 3 starts the scheduled job on weeks 1, 4, 7 and so on.
 The default value is 1.
@@ -421,11 +450,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 You cannot pipe input to this cmdlet.
 
 ## OUTPUTS
@@ -433,6 +464,7 @@ You cannot pipe input to this cmdlet.
 ### Microsoft.PowerShell.ScheduledJob.ScheduledJobTrigger
 
 ## NOTES
+
 * Job triggers are not saved to disk. However, scheduled jobs are saved to disk, and you can use the Get-JobTrigger to get the job trigger of any scheduled job.
 * **New-JobTrigger** does not prevent you from creating a job trigger that will not run a scheduled job, such as one-time trigger for a date in the past.
 * The Register-ScheduledJob cmdlet accepts a ScheduledJobTrigger object, such as one returned by the **New-JobTrigger** or Get-JobTrigger cmdlets, or a hash table with trigger values.

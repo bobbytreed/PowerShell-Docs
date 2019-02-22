@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821450
 schema: 2.0.0
 title: Get-PSReadLineOption
 ---
-
 # Get-PSReadLineOption
 
 ## SYNOPSIS

@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821463
 external help file:  Stop-DscConfiguration.cdxml-help.xml
 title:  Stop-DscConfiguration
 ---
-
 # Stop-DscConfiguration
 
 ## SYNOPSIS
@@ -21,6 +20,7 @@ Stop-DscConfiguration [-Force] [-CimSession <CimSession[]>] [-ThrottleLimit <Int
 ```
 
 ## DESCRIPTION
+
 The `Stop-DscConfiguration` cmdlet stops a configuration job that is currently running.
 Specify which computers this cmdlet applies to by using Common Information Model (CIM) sessions.
 If there is no configuration job running, this cmdlet returns a warning message.
@@ -33,6 +33,7 @@ This cmdlet does not support the *Confirm* parameter.
 ## EXAMPLES
 
 ### Example 1: Stop a configuration job
+
 ```
 PS C:\> $Session = New-CimSession -ComputerName "Server01" -Credential ACCOUNTS\PattiFuller
 PS C:\> Stop-DscConfiguration -CimSession $Session
@@ -47,6 +48,7 @@ The second command stops a currently running configuration job on the computer i
 ## PARAMETERS
 
 ### -AsJob
+
 Indicates that this cmdlet runs the command as a background job.
 
 If you specify the *AsJob* parameter, the command returns an object that represents the job, and then displays the command prompt.
@@ -73,6 +75,7 @@ Accept wildcard characters: False
 ```
 
 ### -CimSession
+
 Runs the cmdlet in a remote session or on a remote computer.
 Enter a computer name or a session object, such as the output of a [New-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/new-cimsession) or [Get-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/get-cimsession) cmdlet.
 The default is the current session on the local computer.
@@ -90,6 +93,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -105,6 +109,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Specifies that this cmdlet cancels the current configuration immediately.
 If this parameter is not specified, the cmdlet cancels the configuration run after the current resource finishes running.
 
@@ -121,6 +126,7 @@ Accept wildcard characters: False
 ```
 
 ### -ThrottleLimit
+
 Specifies the maximum number of concurrent operations that can be established to run the cmdlet.
 If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer.
 The throttle limit applies only to the current cmdlet, not to the session or to the computer.
@@ -138,6 +144,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -154,6 +161,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

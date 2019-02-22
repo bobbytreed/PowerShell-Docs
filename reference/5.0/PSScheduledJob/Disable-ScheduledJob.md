@@ -7,7 +7,6 @@ online version:  http://go.microsoft.com/fwlink/?LinkId=821682
 external help file:  Microsoft.PowerShell.ScheduledJob.dll-Help.xml
 title:  Disable-ScheduledJob
 ---
-
 # Disable-ScheduledJob
 
 ## SYNOPSIS
@@ -16,22 +15,26 @@ Disables a scheduled job.
 ## SYNTAX
 
 ### Definition (Default)
+
 ```
 Disable-ScheduledJob [-InputObject] <ScheduledJobDefinition> [-PassThru] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ### DefinitionId
+
 ```
 Disable-ScheduledJob [-Id] <Int32> [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### DefinitionName
+
 ```
 Disable-ScheduledJob [-Name] <String> [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Disable-ScheduledJob** cmdlet temporarily disables scheduled jobs.
 Disabling preserves all job properties and does not disable the job triggers, but it prevents the scheduled jobs from starting automatically when triggered.
 You can start a disabled scheduled job by using the Start-Job cmdlet or use a disabled scheduled job as a template.
@@ -49,6 +52,7 @@ This cmdlet was introduced in Windows PowerShell 3.0.
 ## EXAMPLES
 
 ### Example 1: Disable a scheduled job
+
 ```
 PS C:\> Disable-ScheduledJob -ID 2 -Passthru
 Id         Name            Triggers        Command                                  Enabled
@@ -60,6 +64,7 @@ This command disables the scheduled job with ID 2 on the local computer.
 The output shows the effect of the command.
 
 ### Example 2: Disable all scheduled jobs
+
 ```
 PS C:\> Get-ScheduledJob | Disable-ScheduledJob -Passthru
 Id         Name            Triggers        Command                                  Enabled
@@ -78,6 +83,7 @@ You can re-enable scheduled job by using the Enable-ScheduledJob cmdlet and run 
 **Disable-ScheduledJob** does not generate warnings or errors if you disable a scheduled job that is already disabled, so you can disable all scheduled jobs without conditions.
 
 ### Example 3: Disable selected scheduled jobs
+
 ```
 PS C:\> Get-ScheduledJob | Where-Object {!$_.Credential} | Disable-ScheduledJob
 ```
@@ -91,6 +97,7 @@ The command uses the not (!) operator and references the Credential property of 
 Another pipeline operator sends the selected scheduled jobs to the **Disable-ScheduledJob** cmdlet, which disables them.
 
 ### Example 4: Disable scheduled jobs on a remote computer
+
 ```
 PS C:\> Invoke-Command -ComputerName Srv01, Srv10 -ScriptBlock {Disable-ScheduledJob -Name TestJob}
 ```
@@ -101,6 +108,7 @@ The command uses the Invoke-Command cmdlet to run a **Disable-ScheduledJob** com
 The command uses the *Name* parameter of **Disable-ScheduledJob** to select the TestJob scheduled job on each computer.
 
 ### Example 5: Disable a scheduled job by its global ID
+
 ```
 The first command demonstrates one way of finding the GlobalID of a scheduled job. The command uses the Get-ScheduledJob cmdlet to get the scheduled jobs on the computer. A pipeline operator (|) sends the scheduled jobs to the Format-Table cmdlet, which displays the Name, GlobalID, and Command properties of each job in a table.
 PS C:\> Get-ScheduledJob | Format-Table -Property Name, GlobalID, Command -Autosize
@@ -123,6 +131,7 @@ Use the GlobalID value when precision is required, such as when you are disablin
 ## PARAMETERS
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -138,6 +147,7 @@ Accept wildcard characters: False
 ```
 
 ### -Id
+
 Disables the scheduled job with the specified identification number (ID).
 Enter the ID of a scheduled job.
 
@@ -154,6 +164,7 @@ Accept wildcard characters: False
 ```
 
 ### -InputObject
+
 Specifies the scheduled job to be disabled.
 Enter a variable that contains  **ScheduledJobDefinition** objects or type a command or expression that gets **ScheduledJobDefinition** objects, such as a Get-ScheduledJob command.
 You can also pipe a **ScheduledJobDefinition** object to **Disable-ScheduledJob**.
@@ -171,6 +182,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Disables the scheduled jobs with the specified names.
 Enter the name of a scheduled job.
 Wildcards are supported.
@@ -188,6 +200,7 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
+
 Returns an object representing the item with which you are working.
 By default, this cmdlet does not generate any output.
 
@@ -204,6 +217,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -220,20 +234,24 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition
+
 You can pipe a scheduled job to **Disable-ScheduledJob**.
 
 ## OUTPUTS
 
 ### None or Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition
+
 If you use the **Passthru** parameter, **Disable-ScheduledJob** returns the scheduled job that was disabled.
 Otherwise, this cmdlet does not generate any output.
 
 ## NOTES
+
 * **Disable-ScheduledJob** does not generate warnings or errors if you use it to disable a scheduled job that is already disabled.
 
 ## RELATED LINKS

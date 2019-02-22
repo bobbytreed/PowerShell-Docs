@@ -6,7 +6,6 @@ Module Name: PSDiagnostics
 ms.date: 11/29/2018
 schema: 2.0.0
 ---
-
 # Disable-WSManTrace
 
 ## SYNOPSIS
@@ -19,6 +18,7 @@ Disable-WSManTrace [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 This cmdlet stops the WSMan logging session started by Enable-WSManTrace.
 
 This cmdlet uses the `Stop-Trace` cmdlet.

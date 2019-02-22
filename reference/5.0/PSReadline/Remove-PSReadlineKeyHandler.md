@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821451
 schema: 2.0.0
 title: Remove-PSReadLineKeyHandler
 ---
-
 # Remove-PSReadLineKeyHandler
 
 ## SYNOPSIS

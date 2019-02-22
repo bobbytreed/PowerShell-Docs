@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkID=821449
 schema: 2.0.0
 title: Get-PSReadLineKeyHandler
 ---
-
 # Get-PSReadLineKeyHandler
 
 ## SYNOPSIS
