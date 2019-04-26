@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821871
 schema: 2.0.0
 title: Update-TypeData
 ---
-
 # Update-TypeData
 
 ## SYNOPSIS
@@ -17,11 +16,13 @@ Updates the extended type data in the session.
 ## SYNTAX
 
 ### FileSet (Default)
+
 ```
 Update-TypeData [[-AppendPath] <String[]>] [-PrependPath <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### DynamicTypeSet
+
 ```
 Update-TypeData [-MemberType <PSMemberTypes>] [-MemberName <String>] [-Value <Object>] [-SecondValue <Object>]
  [-TypeConverter <Type>] [-TypeAdapter <Type>] [-SerializationMethod <String>]
@@ -32,11 +33,13 @@ Update-TypeData [-MemberType <PSMemberTypes>] [-MemberName <String>] [-Value <Ob
 ```
 
 ### TypeDataSet
+
 ```
 Update-TypeData [-Force] [-TypeData] <TypeData[]> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Update-TypeData** cmdlet updates the extended type data in the session by reloading the Types.ps1xml files into memory and adding new extended type data.
 
 By default, PowerShell loads extended type data as it is needed.
@@ -67,6 +70,7 @@ For more information about the *types.ps1xml files in PowerShell, see [about_Typ
 ## EXAMPLES
 
 ### Example 1: Update extended types
+
 ```
 PS C:\> Update-TypeData
 ```
@@ -74,6 +78,7 @@ PS C:\> Update-TypeData
 This command updates the extended type configuration from the *.types.ps1xml files that have already been used in the session.
 
 ### Example 2: Update types multiple times
+
 ```
 The first command updates the extended type configuration from the *.types.ps1xml files, processing the TypesA.types.ps1xml and TypesB.types.ps1xml files first.
 PS C:\> Update-TypeData -PrependPath TypesA.types.ps1xml, TypesB.types.ps1xml
@@ -89,6 +94,7 @@ Update-TypeData
 This example shows how to update the types in a type file multiple times in the same session.
 
 ### Example 3: Add a script property to DateTime objects
+
 ```
 PS C:\> Update-TypeData -TypeName "System.DateTime" -MemberType ScriptProperty -MemberName "Quarter" -Value {if ($this.Month -in @(1,2,3)) {"Q1"} elseif ($this.Month -in @(4,5,6)) {"Q2"} elseif ($this.Month -in @(7,8,9)) {"Q3"} else {"Q4"} }
 PS C:\> (Get-Date).QuarterQ1
@@ -105,6 +111,7 @@ For more information about the In operator, see [about_Comparison_Operators](../
 The second command gets the new Quarter property of the current date.
 
 ### Example 4: Update a type that displays in lists by default
+
 ```
 PS C:\> Update-TypeData -TypeName "System.DateTime" -DefaultDisplayPropertySet "DateTime, DayOfYear, Quarter"
 PS C:\> Get-Date | Format-List
@@ -125,6 +132,7 @@ The command uses a pipeline operator (|) to send the **DateTime** object to the 
 Because the **Format-List** command does not specify the properties to display in the list, PowerShell uses the default values that were established by the **Update-TypeData** command.
 
 ### Example 5: Update type data for a piped object
+
 ```
 PS C:\> Get-Module | Update-TypeData -MemberType ScriptProperty -MemberName "SupportsUpdatableHelp" -Value {if ($this.HelpInfoUri) {$True} else {$False}}
 Get-Module -ListAvailable | Format-Table Name, SupportsUpdatableHelp
@@ -159,6 +167,7 @@ The second command pipes the module objects from **Get-Module** to the **Format-
 ## PARAMETERS
 
 ### -AppendPath
+
 Specifies the path to optional .ps1xml files.
 The specified files are loaded in the order that they are listed after the built-in files are loaded.
 You can also pipe an **AppendPath** value to **Update-TypeData**.
@@ -176,6 +185,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultDisplayProperty
+
 Specifies the property of the type that is displayed by the Format-Wide cmdlet when no other properties are specified.
 
 Type the name of a standard or extended property of the type.
@@ -198,6 +208,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultDisplayPropertySet
+
 Specifies one or more properties of the type.
 These properties are displayed by the Format-List cmdlet when no other properties are specified.
 
@@ -221,6 +232,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultKeyPropertySet
+
 Specifies one or more properties of the type.
 These properties are used by the Group-Object and Sort-Object cmdlets when no other properties are specified.
 
@@ -242,6 +254,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Indicates that the cmdlet uses the specified type data, even if type data has already been specified for that type.
 
 This parameter was introduced in Windows PowerShell 3.0.
@@ -259,6 +272,7 @@ Accept wildcard characters: False
 ```
 
 ### -InheritPropertySerializationSet
+
 Indicates whether the set of properties that are serialized is inherited.
 The default value is $Null.
 The acceptable values for this parameter are:
@@ -288,6 +302,7 @@ Accept wildcard characters: False
 ```
 
 ### -MemberName
+
 Specifies the name of a property or method.
 
 Use this parameter with the *TypeName*, *MemberType*, *Value* and *SecondValue* parameters to add or change a property or method of a type.
@@ -307,6 +322,7 @@ Accept wildcard characters: False
 ```
 
 ### -MemberType
+
 Specifies the type of the member to add or change.
 
 Use this parameter with the *TypeName*, *MemberType*, *Value* and *SecondValue* parameters to add or change a property or method of a type.
@@ -337,6 +353,7 @@ Accept wildcard characters: False
 ```
 
 ### -PrependPath
+
 Specifies the path to the optional .ps1xml files.
 The specified files are loaded in the order that they are listed before the built-in files are loaded.
 
@@ -353,6 +370,7 @@ Accept wildcard characters: False
 ```
 
 ### -PropertySerializationSet
+
 Specifies the names of properties that are serialized.
 Use this parameter when the value of the *SerializationMethod* parameter is **SpecificProperties**.
 
@@ -369,6 +387,7 @@ Accept wildcard characters: False
 ```
 
 ### -SecondValue
+
 Specifies additional values for **AliasProperty**, **ScriptProperty**, **CodeProperty**, or **CodeMethod** members.
 
 Use this parameter with the *TypeName*, *MemberType*, *Value*, and *SecondValue* parameters to add or change a property or method of a type.
@@ -396,6 +415,7 @@ Accept wildcard characters: False
 ```
 
 ### -SerializationDepth
+
 Specifies how many levels of type objects are serialized as strings.
 The default value, 1, serializes the object and its properties.
 A value of 0 serializes the object, but not its properties.
@@ -416,6 +436,7 @@ Accept wildcard characters: False
 ```
 
 ### -SerializationMethod
+
 Specifies a serialization method for the type.
 A serialization method determines which properties of the type are serialized and the technique that is used to serialize them.
 The acceptable values for this parameter are:
@@ -449,6 +470,7 @@ Accept wildcard characters: False
 ```
 
 ### -StringSerializationSource
+
 Specifies the name of a property of the type.
 The value of specified property is used as the serialization result.
 This parameter is valid only when the value of the *SerializationMethod* parameter is String.
@@ -466,6 +488,7 @@ Accept wildcard characters: False
 ```
 
 ### -TargetTypeForDeserialization
+
 Specifies the type to which object of this type are converted when they are deserialized.
 
 This parameter was introduced in Windows PowerShell 3.0.
@@ -483,6 +506,7 @@ Accept wildcard characters: False
 ```
 
 ### -TypeAdapter
+
 Specifies the type of a type adapter, such as **Microsoft.PowerShell.Cim.CimInstanceAdapter**.
 A type adapter enables PowerShell to get the members of a type.
 
@@ -501,6 +525,7 @@ Accept wildcard characters: False
 ```
 
 ### -TypeConverter
+
 Specifies a type converter to convert values between different types.
 If a type converter is defined for a type, an instance of the type converter is used for the conversion.
 
@@ -521,6 +546,7 @@ Accept wildcard characters: False
 ```
 
 ### -TypeData
+
 Specifies an array of type data that this cmdlet adds to the session.
 Enter a variable that contains a **TypeData** object or a command that gets a **TypeData** object, such as a Get-TypeData command.
 You can also pipe a **TypeData** object to **Update-TypeData**.
@@ -540,6 +566,7 @@ Accept wildcard characters: False
 ```
 
 ### -TypeName
+
 Specifies the name of the type to extend.
 
 For types in the **System** namespace, enter the short name.
@@ -566,6 +593,7 @@ Accept wildcard characters: False
 ```
 
 ### -Value
+
 Specifies the value of the property or method.
 
 If you add an AliasProperty, CodeProperty, ScriptProperty, or CodeMethod member, you can use the *SecondValue* parameter to add additional information.
@@ -587,6 +615,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -602,6 +631,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -618,16 +648,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.String
+
 You can pipe a string that contains the values of the *AppendPath*, *TypeName*, or *TypeData* parameters to **Update-TypeData**.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not return any output.
 
 ## NOTES

@@ -8,11 +8,9 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821842
 schema: 2.0.0
 title: Out-String
 ---
-
 # Out-String
 
 ## SYNOPSIS
-
 Sends objects to the host as a series of strings.
 
 ## SYNTAX
@@ -119,6 +117,7 @@ Accept wildcard characters: False
 ```
 
 ### -NoNewline
+
 Removes all newlines from formatter generated output. Note that newlines present as part of string objects are preserved
 
 ```yaml

@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821725
 schema: 2.0.0
 title: Disable-WSManCredSSP
 ---
-
 # Disable-WSManCredSSP
 
 ## SYNOPSIS
@@ -21,6 +20,7 @@ Disable-WSManCredSSP [-Role] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Disable-WSManCredSSP** cmdlet disables Credential Security Support Provider (CredSSP) authentication on a client or on a server computer.
 When CredSSP authentication is used, the user credentials are passed to a remote computer to be authenticated.
 
@@ -42,6 +42,7 @@ If the remote computer is compromised, when credentials are passed to it, the cr
 ## EXAMPLES
 
 ### Example 1: Disable CredSSP on a client
+
 ```
 PS C:\> Disable-WSManCredSSP -Role Client
 ```
@@ -49,6 +50,7 @@ PS C:\> Disable-WSManCredSSP -Role Client
 This command disables CredSSP on the client, which prevents delegation to servers.
 
 ### Example 2: Disable CredSSP on a server
+
 ```
 PS C:\> Disable-WSManCredSSP -Role Server
 ```
@@ -58,6 +60,7 @@ This command disables CredSSP on the server, which prevents delegation from clie
 ## PARAMETERS
 
 ### -Role
+
 Specifies whether to disable CredSSP as a client or as a server.
 The acceptable values for this parameter are: Client and Server.
 
@@ -84,19 +87,23 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 This cmdlet does not accept any input.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not generate any output.
 
 ## NOTES
+
 * To enable CredSSP authentication, use the Enable-WSManCredSSP cmdlet.
 
 *

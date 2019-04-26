@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821869
 schema: 2.0.0
 title: Update-FormatData
 ---
-
 # Update-FormatData
 
 ## SYNOPSIS
@@ -22,6 +21,7 @@ Update-FormatData [[-AppendPath] <String[]>] [-PrependPath <String[]>] [-WhatIf]
 ```
 
 ## DESCRIPTION
+
 The **Update-FormatData** cmdlet reloads the formatting data from formatting files into the current session.
 This cmdlet lets you update the formatting data without restarting PowerShell.
 
@@ -40,6 +40,7 @@ For more information about formatting files in PowerShell, see about_Format.ps1x
 ## EXAMPLES
 
 ### Example 1: Reload previously loaded formatting files
+
 ```
 PS C:\> Update-FormatData
 ```
@@ -47,6 +48,7 @@ PS C:\> Update-FormatData
 This command reloads the formatting files that it loaded previously.
 
 ### Example 2: Reload formatting files and trace and log formatting files
+
 ```
 PS C:\> Update-FormatData -AppendPath "trace.format.ps1xml, log.format.ps1xml"
 ```
@@ -58,6 +60,7 @@ Because the command uses the *AppendPath* parameter, the formatting data in the 
 The *AppendPath* parameter is used because the new files contain formatting data for objects that are not referenced in the built-in files.
 
 ### Example 3: Edit a formatting file and reload it
+
 ```
 PS C:\> Update-FormatData -PrependPath "c:\test\NewFiles.format.ps1xml"
 
@@ -79,6 +82,7 @@ Because the NewFiles.format.ps1xml file was previously loaded, **Update-FormatDa
 ## PARAMETERS
 
 ### -AppendPath
+
 Specifies formatting files that this cmdlet adds to the session.
 The files are loaded after PowerShell loads the built-in formatting files.
 
@@ -100,6 +104,7 @@ Accept wildcard characters: False
 ```
 
 ### -PrependPath
+
 Specifies formatting files that this cmdlet adds to the session.
 The files are loaded before PowerShell loads the built-in formatting files.
 
@@ -121,6 +126,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -136,6 +142,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -152,19 +159,23 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.String
+
 You can pipe a string that contains the append path to **Update-FormatData**.
 
 ## OUTPUTS
 
 ### None
+
 The cmdlet does not return any output.
 
 ## NOTES
+
 * **Update-FormatData** also updates the formatting data for commands in the session that were imported from modules. If the formatting file for a module changes, you can run an **Update-FormatData** command to update the formatting data for imported commands. You do not need to import the module again.
 
 *

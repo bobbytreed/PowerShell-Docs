@@ -7,11 +7,9 @@ ms.date: 11/09/2017
 schema: 2.0.0
 title: Write-Host
 ---
-
 # Write-Host
 
 ## SYNOPSIS
-
 Writes customized output to a host.
 
 ## SYNTAX
@@ -233,6 +231,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

@@ -8,11 +8,9 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821877
 schema: 2.0.0
 title: Write-Information
 ---
-
 # Write-Information
 
 ## SYNOPSIS
-
 Specifies how PowerShell handles information stream data for a command.
 
 ## SYNTAX
@@ -173,6 +171,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

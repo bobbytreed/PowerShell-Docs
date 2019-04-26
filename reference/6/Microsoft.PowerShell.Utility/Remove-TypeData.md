@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821849
 schema: 2.0.0
 title: Remove-TypeData
 ---
-
 # Remove-TypeData
 
 ## SYNOPSIS
@@ -17,21 +16,25 @@ Deletes extended types from the current session.
 ## SYNTAX
 
 ### RemoveTypeDataSet (Default)
+
 ```
 Remove-TypeData -TypeData <TypeData> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RemoveTypeSet
+
 ```
 Remove-TypeData [-TypeName] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RemoveFileSet
+
 ```
 Remove-TypeData -Path <String[]> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **Remove-TypeData** cmdlet deletes extended type data from the current session.
 This cmdlet affects only the current session and sessions that are created in the current session.
 
@@ -45,6 +48,7 @@ This cmdlet was introduced in Windows PowerShell 3.0.
 ## EXAMPLES
 
 ### Example 1: Remove type data for a specified type
+
 ```
 PS C:\> Remove-TypeData -TypeName System.Array
 ```
@@ -52,6 +56,7 @@ PS C:\> Remove-TypeData -TypeName System.Array
 This command deletes from the session all type data for the **System.Array** type, including type data that was added by a Types.ps1xml file and dynamic type data that was added to the session by using the Update-TypeData cmdlet.
 
 ### Example 2: Remove an extended data type from a session
+
 ```
 The first command uses the Get-TypeData cmdlet to get extended type data for the **System.DateTime** type.The output shows that a **DateTime** property has been added to all **System.DateTime** objects in PowerShell.
 PS C:\> Get-TypeData System.DateTime
@@ -73,6 +78,7 @@ PS C:\> (Get-Date).DateTime
 This command shows the effect of removing extended type data from a session.
 
 ### Example 3: Remove extended types for modules
+
 ```
 PS C:\> Get-Module | Remove-TypeData
 ```
@@ -81,6 +87,7 @@ This command removes all extended type data for module objects.
 When you pipe an object to **Remove-TypeData**, **Remove-TypeData** gets the name of the object type and removes all type data for all objects of that type.
 
 ### Example 4: Remove extended types from specified modules
+
 ```
 PS C:\> Remove-TypeData -Path "C:\WINDOWS\System32\WindowsPowerShell\v1.0\Modules\PSScheduledJob, C:\WINDOWS\System32\WindowsPowerShell\v1.0\Modules\PSWorkflow\PSWorkflow.types.ps1xml"
 ```
@@ -92,6 +99,7 @@ The command succeeds only when the modules have been imported into the current s
 For more information about modules, see [about_Modules](../Microsoft.PowerShell.Core/About/about_Modules.md).
 
 ### Example 5: Remove extended types from a remote session
+
 ```
 PS C:\> Invoke-Command -Session $S {Get-TypeData -TypeName *CIM* | Remove-TypeData}
 ```
@@ -102,6 +110,7 @@ The command uses the Invoke-Command cmdlet to remove extended type data for all 
 ## PARAMETERS
 
 ### -Path
+
 Specifies an array of files that this cmdlet deletes from the session extended type data.
 This parameter is required.
 
@@ -122,6 +131,7 @@ Accept wildcard characters: False
 ```
 
 ### -TypeData
+
 Specifies the type data that this cmdlet deletes from the session.
 This parameter is required.
 Enter a variable that contains **TypeData** objects (**System.Management.Automation.Runspaces.TypeData**) or a command that gets **TypeData** objects, such as a **Get-TypeData** command.
@@ -140,6 +150,7 @@ Accept wildcard characters: False
 ```
 
 ### -TypeName
+
 Specifies the types that this cmdlet deletes all extended type data for.
 For types in the System namespace, enter the short name.
 Otherwise, the full type name is required.
@@ -161,6 +172,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -176,6 +188,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -192,23 +205,28 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Management.Automation.Runspaces.TypeData
+
 You can pipe **TypeData** object, such as the ones that the Get-TypeData cmdlet returns, to **Remove-TypeData**.
 
 ### System.String
+
 You can pipe the type names to **Remove-TypeData**.
 When you pipe an object to **Remove-TypeData**, **Remove-TypeData** gets the type name of the object and removes all type data for the object type.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not generate any output.
 
 ## NOTES
+
 * **Remove-TypeData** can remove only the extended type data in the current session. It cannot remove extended type data that is on the computer, but has not been added to the current session, such as extended types that are defined in modules that have not been imported into the current session.
 
 ## RELATED LINKS

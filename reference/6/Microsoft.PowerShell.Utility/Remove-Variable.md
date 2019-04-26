@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821852
 schema: 2.0.0
 title: Remove-Variable
 ---
-
 # Remove-Variable
 
 ## SYNOPSIS
@@ -22,12 +21,14 @@ Remove-Variable [-Name] <String[]> [-Include <String[]>] [-Exclude <String[]>] [
 ```
 
 ## DESCRIPTION
+
 The **Remove-Variable** cmdlet deletes a variable and its value from the scope in which it is defined, such as the current session.
 You cannot use this cmdlet to delete variables that are set as constants or those that are owned by the system.
 
 ## EXAMPLES
 
 ### Example 1: Remove a variable
+
 ```
 PS C:\> Remove-Variable Smp
 ```
@@ -37,6 +38,7 @@ This command deletes the $Smp variable.
 ## PARAMETERS
 
 ### -Exclude
+
 Specifies an array of items that this cmdlet omits from the operation.
 The value of this parameter qualifies the *Name* parameter.
 Enter a name element or pattern, such as "s*".
@@ -55,6 +57,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Indicates that the cmdlet removes a variable even if it is read-only.
 Even using the *Force* parameter, the cmdlet cannot remove a constant.
 
@@ -71,6 +74,7 @@ Accept wildcard characters: False
 ```
 
 ### -Include
+
 Specifies an array of items that this cmdlet deletes in the operation.
 The value of this parameter qualifies the *Name* parameter.
 Enter a name element or pattern, such as s*.
@@ -89,6 +93,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the name of the variable to be removed.
 The parameter name (*Name*) is optional.
 
@@ -105,6 +110,7 @@ Accept wildcard characters: False
 ```
 
 ### -Scope
+
 Gets only the variables in the specified scope.
 The acceptable values for this parameter are:
 
@@ -129,6 +135,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -144,6 +151,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -160,19 +168,23 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Management.Automation.PSVariable
+
 You can pipe a variable object to **Remove-Variable**.
 
 ## OUTPUTS
 
 ### None
+
 This cmdlet does not return any output.
 
 ## NOTES
+
 * Changes affect only the current scope, such as a session. To delete a variable from all sessions, add a **Remove-Variable** command to your PowerShell profile.
 
   You can also refer to **Remove-Variable** by its built-in alias, **rv**.

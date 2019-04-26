@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821861
 schema: 2.0.0
 title: Set-Variable
 ---
-
 # Set-Variable
 
 ## SYNOPSIS
@@ -24,12 +23,14 @@ Set-Variable [-Name] <String[]> [[-Value] <Object>] [-Include <String[]>] [-Excl
 ```
 
 ## DESCRIPTION
+
 The **Set-Variable** cmdlet assigns a value to a specified variable or changes the current value.
 If the variable does not exist, the cmdlet creates it.
 
 ## EXAMPLES
 
 ### Example 1: Set a variable and get its value
+
 ```
 PS C:\> Set-Variable -Name "desc" -Value "A description"
 PS C:\> Get-Variable -Name "desc"
@@ -38,6 +39,7 @@ PS C:\> Get-Variable -Name "desc"
 These commands set the value of the desc variable to A description, and then gets the value of the variable.
 
 ### Example 2: Set a global, read-only variable
+
 ```
 PS C:\> Set-Variable -Name "processes" -Value (Get-Process) -Option constant -Scope global -Description "All processes" -PassThru | Format-List -Property *
 ```
@@ -52,6 +54,7 @@ The value, "(Get-Process)", is enclosed in parentheses to ensure that it is exec
 Otherwise, the variable contains the words "Get-Process".
 
 ### Example 3: Understand public vs. private variables
+
 ```
 PS C:\> # Set-Variable -Name "counter" -Visibility Private
 PS C:\> New-Variable -Name "counter" -Visibility Public -Value 26
@@ -83,6 +86,7 @@ The sample output shows the difference in the behavior of public and private var
 ## PARAMETERS
 
 ### -Description
+
 Specifies the description of the variable.
 
 ```yaml
@@ -98,6 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### -Exclude
+
 Specifies an array of items that this cmdlet excludes from the operation.
 The value of this parameter qualifies the *Path* parameter.
 Enter a path element or pattern, such as `*.txt`.
@@ -116,6 +121,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Forces the command to run without asking for user confirmation.
 
 By default, you can overwrite a variable, unless the variable has an option value of ReadOnly or Constant.
@@ -134,6 +140,7 @@ Accept wildcard characters: False
 ```
 
 ### -Include
+
 Specifies an array of items that this cmdlet includes in the operation.
 The value of this parameter qualifies the *Name* parameter.
 Enter a name or name pattern, such as `c*`.
@@ -152,6 +159,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
+
 Specifies the variable name.
 
 ```yaml
@@ -167,6 +175,7 @@ Accept wildcard characters: False
 ```
 
 ### -Option
+
 Specifies the value of the **Options** property of the variable.
 
 The acceptable values for this parameter are:
@@ -202,6 +211,7 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
+
 Returns an object representing the item with which you are working.
 By default, this cmdlet does not generate any output.
 
@@ -218,6 +228,7 @@ Accept wildcard characters: False
 ```
 
 ### -Scope
+
 Specifies the scope of the variable.The acceptable values for this parameter are:
 
 - Global
@@ -243,6 +254,7 @@ Accept wildcard characters: False
 ```
 
 ### -Value
+
 Specifies the value of the variable.
 
 ```yaml
@@ -258,6 +270,7 @@ Accept wildcard characters: False
 ```
 
 ### -Visibility
+
 Determines whether the variable is visible outside of the session in which it was created.
 This parameter is designed for use in scripts and commands that will be delivered to other users.
 The acceptable values for this parameter are:
@@ -286,6 +299,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -301,6 +315,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -317,16 +332,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Object
+
 You can pipe an object that represents the value of the variable to **Set-Variable**.
 
 ## OUTPUTS
 
 ### None or System.Management.Automation.PSVariable
+
 When you use the *PassThru* parameter, **Set-Variable** generates a **System.Management.Automation.PSVariable** object representing the new or changed variable.
 Otherwise, this cmdlet does not generate any output.
 

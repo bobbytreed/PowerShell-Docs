@@ -8,7 +8,6 @@ online version: http://go.microsoft.com/fwlink/?LinkId=821837
 schema: 2.0.0
 title: New-TimeSpan
 ---
-
 # New-TimeSpan
 
 ## SYNOPSIS
@@ -17,16 +16,19 @@ Creates a TimeSpan object.
 ## SYNTAX
 
 ### Date (Default)
+
 ```
 New-TimeSpan [[-Start] <DateTime>] [[-End] <DateTime>] [<CommonParameters>]
 ```
 
 ### Time
+
 ```
 New-TimeSpan [-Days <Int32>] [-Hours <Int32>] [-Minutes <Int32>] [-Seconds <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **New-TimeSpan** cmdlet creates a **TimeSpan** object that represents a time interval.
 You can use a **TimeSpan** object to add or subtract time from **DateTime** objects.
 
@@ -35,6 +37,7 @@ Without parameters, a **New-Timespan** command returns a timespan object that re
 ## EXAMPLES
 
 ### Example 1: Create a TimeSpan object for a specified duration
+
 ```
 PS C:\> $TimeSpan = New-TimeSpan -Hour 1 -Minute 25
 ```
@@ -43,6 +46,7 @@ This command creates a **TimeSpan** object with a duration of 1 hour and 25 minu
 It displays a representation of the **TimeSpan** object.
 
 ### Example 2: Create a TimeSpan object for a time interval
+
 ```
 PS C:\> new-timespan -end (get-date -year 2010 -month 1 -day 1)
 ```
@@ -52,6 +56,7 @@ This example creates a new **TimeSpan** object that represents the interval betw
 This command does not require the *Start* parameter, because the default value of the *Start* parameter is the current date and time.
 
 ### Example 3: Get the date 90 days from the current date
+
 ```
 PS C:\> $90days = New-TimeSpan -Days 90
 PS C:\> (Get-Date) + $90days
@@ -60,6 +65,7 @@ PS C:\> (Get-Date) + $90days
 These commands return the date that is 90 days after the current date.
 
 ### Example 4: Discover the TimeSpan since a file was updated
+
 ```
 PS C:\> dir $pshome\en-us\about_remote.help.txt | New-TimeSpan
 Days              : 321
@@ -86,6 +92,7 @@ When you pipe an object that has a **LastWriteTime** property to **New-TimeSpan*
 ## PARAMETERS
 
 ### -Days
+
 Specifies the days in the time span.
 The default value is 0.
 
@@ -102,6 +109,7 @@ Accept wildcard characters: False
 ```
 
 ### -End
+
 Specifies the end of a time span.
 The default value is the current date and time.
 
@@ -118,6 +126,7 @@ Accept wildcard characters: False
 ```
 
 ### -Hours
+
 Specifies the hours in the time span.
 The default value is zero.
 
@@ -134,6 +143,7 @@ Accept wildcard characters: False
 ```
 
 ### -Minutes
+
 Specifies the minutes in the time span.
 The default value is 0.
 
@@ -150,6 +160,7 @@ Accept wildcard characters: False
 ```
 
 ### -Seconds
+
 Specifies the length of the time span in seconds.
 The default value is 0.
 
@@ -166,6 +177,7 @@ Accept wildcard characters: False
 ```
 
 ### -Start
+
 Specifies the start of a time span.
 Enter a string that represents the date and time, such as "3/15/09" or a **DateTime** object, such as one from a Get-Date command.
 The default value is the current date and time.
@@ -186,16 +198,19 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.DateTime
+
 You can pipe a **DateTime** object that represents that start time to **New-TimeSpan**.
 
 ## OUTPUTS
 
 ### System.TimeSpan
+
 **New-TimeSpan** returns an object that represents the time span.
 
 ## NOTES
