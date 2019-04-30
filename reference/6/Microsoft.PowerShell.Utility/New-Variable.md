@@ -33,82 +33,93 @@ Typically, you create a new variable by typing the variable name and its value, 
 ## EXAMPLES
 
 ### Example 1: Create a variable
-```
-PS C:\> New-Variable days
-```
 
-This command creates a new variable named days.
-You are not required to type the *Name* parameter.
+This command creates a new variable named days. The command uses the `-PassThru` parameter to show
+the new variable.
 
-### Example 2: Create a variable and assign it a value
-```
-PS C:\> New-Variable -Name "zipcode" -Value 98033
+```powershell
+New-Variable -Name days -PassThru
 ```
 
-This command creates a variable named zipcode and assigns it the value 98033.
-
-### Example 3: Create a variable with the ReadOnly option
-```
-PS C:\> New-Variable -Name Max -Value 256 -Option ReadOnly
-PS C:\> New-Variable -Name max -Value 1024
-
-New-Variable : A variable with name 'max' already exists.
-At line:1 char:1
-+ New-Variable -Name max -Value 1024
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ResourceExists: (max:String) [New-Variable], SessionStateException
-    + FullyQualifiedErrorId : VariableAlreadyExists,Microsoft.PowerShell.Commands.NewVariableCommand
-
-PS C:\> New-Variable -Name max -Value 1024 -Force
-```
-
-This example shows how to use the ReadOnly option of **New-Variable** to protect a variable from being overwritten.
-
-The first command creates a new variable named Max and sets its value to 256.
-It uses the *Option* parameter with a value of ReadOnly.
-
-The second command tries to create a second variable with the same name.
-This command returns an error, because the read-only option is set on the variable.
-
-The third command uses the *Force* parameter to override the read-only protection on the variable.
-In this case, the command to create a new variable with the same name succeeds.
-
-### Example 4: Create a private variable
-```
-PS C:\> New-Variable -Name counter -Visibility Private
-
-#Effect of private variable in a module.
-
-PS C:\> Get-Variable c*
-
+```Output
 Name                           Value
 ----                           -----
-Culture                        en-US
-ConsoleFileName
-ConfirmPreference              High
-CommandLineParameters          {}
-
-PS C:\> $counter
-"Cannot access the variable '$counter' because it is a private variable"
-At line:1 char:1
-+ $counter
-+ ~~~~~~~~
-    + CategoryInfo          : PermissionDenied: (counter:String) [], SessionStateException
-    + FullyQualifiedErrorId : VariableIsPrivate
-
-PS C:\> Get-Counter
-Name         Value
-----         -----
-Counter1     3.1415
-...
+days
 ```
 
-This command demonstrates the behavior of a private variable in a module.
-The module contains the Get-Counter cmdlet, which has a private variable named Counter.
-The command uses the *Visibility* parameter with a value of Private to create the variable.
+### Example 2: Create a variable and assign it a value
 
-The sample output shows the behavior of a private variable.
-The user who has loaded the module cannot view or change the value of the Counter variable, but the Counter variable can be read and changed by the commands in the module.
+This example creates a variable named zipcode and assigns it the value 98033. The second command
+outputs the value of the new variable by preceding the variable name with the dollar sign `$`.
+
+```powershell
+New-Variable -Name "zipcode" -Value 98033
+$zipcode
+```
+
+```Output
+98033
+```
+
+### Example 3: Create a variable with the ReadOnly option
+
+This example shows how to use the **ReadOnly** option of `New-Variable` to protect a variable from
+being overwritten. When you try to assign the variable a new value, you see the
+**VariableNotWritable** error, as shown below.
+
+The `Set-Variable` cmdlet allows you to overwrite the read-only variable with the `-Force` parameter.
+
+The last command in the example pipes the variable to the `Select-Object` cmdlet which shows that
+the **ReadOnly** option is still set.
+
+```powershell
+New-Variable -Name Max -Value 256 -Option ReadOnly
+$max = 128
+```
+
+```Output
+Cannot overwrite variable Max because it is read-only or constant.
+At line:2 char:1
++ $max = 128
++ ~~~~~~~~~~
+    + CategoryInfo          : WriteError: (Max:String) [], SessionStateUnauthorizedAccessException
+    + FullyQualifiedErrorId : VariableNotWritable
+```
+
+```powershell
+Set-Variable -Name Max -Value 128 -Force
+Get-Variable -Name Max | Select -Property *
+```
+
+### Example 4: Create a private variable
+
+This example demonstrates the behavior of a private variable. Declaring a variable as **Private**
+hides the variable from other scopes. The [Invoke-Command](Invoke-Command.md) cmdlet is used to
+execute the **ScriptBlocks** in the example.
+
+The first command sequence declares a variable called `$test`, and then executes a **ScriptBlock**
+which attempts to output the value of `$test`. Because `$test` was defined in a parent scope, the
+**ScriptBlock** can access the value and displays it.
+
+The second command sequence is the same as the first, except that the `$test` variable is declared
+as **Private** with the `New-Variable` cmdlet. The `-Force` parameter is used to overwrite the
+previously declared `$test` variable. In the second command sequence, the **ScriptBlock**
+is unable to display the value of `$test` because it was declared with **Private** visibility.
+
+For more information on scopes, see [about_Scopes](about_Scopes.md).
+
+```powershell
+New-Variable -Name test -Value "Can you see me?"
+Invoke-Command -ScriptBlock { $test }
+```
+
+```Output
+Can you see me?
+```
+
+```powershell
+
+```
 
 ### Example 5: Create a variable with a space
 ```
